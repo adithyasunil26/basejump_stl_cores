@@ -1,0 +1,31 @@
+CAPI=2:
+
+name: ::name:0-r1
+description: 
+
+filesets:
+  rtl:
+    files:
+      - file_to_be_included : {is_include_file : true}
+      - main_file
+    file_type: systemVerilogSource
+
+  tb :
+    files:
+      - tb file
+    file_type: systemVerilogSource
+
+targets:
+  default:
+    filesets: [rtl]
+  
+  sim:
+    default_tool: verilator
+    description: testbench
+    filesets: [rtl, tb]
+    toplevel: top module
+
+provider:
+  name: github
+  user: bespoke-silicon-group
+  repo: basejump_stl
