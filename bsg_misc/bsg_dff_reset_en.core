@@ -25,7 +25,7 @@ targets:
     tools:
       verilator: 
         mode: lint-only
-    toplevel: bsg_dff
+    toplevel: bsg_dff_reset_en
     parameters: 
       - width_p=2
   
