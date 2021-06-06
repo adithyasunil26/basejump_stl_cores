@@ -42,12 +42,10 @@ parameters:
     datatype : int
     default  : -1
     paramtype: vlogparam
-  
   harden_p:
     datatype : int
     default  : 0
     paramtype: vlogparam
-	
   strength_p:
     datatype : int
     default  : 1
