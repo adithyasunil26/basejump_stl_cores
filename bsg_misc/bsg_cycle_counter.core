@@ -9,11 +9,6 @@ filesets:
       - bsg_misc/bsg_defines.v: {is_include_file : true}
       - bsg_misc/bsg_cycle_counter.v
     file_type: systemVerilogSource
-  
-  tb:
-    files:
-      - testing/bsg_misc/bsg_cycle_counter/test_bsg.v
-    file_type: systemVerilogSource
 
 targets:
   default:
@@ -26,14 +21,6 @@ targets:
       verilator: 
         mode: lint-only
     toplevel: bsg_cycle_counter
-  
-  verilator_tb:
-    default_tool: verilator
-    filesets: [rtl, tb]
-    tools:
-      verilator:
-        verilator_options: [--trace]
-    toplevel: test_bsg
 
 parameters:
   width_p:
