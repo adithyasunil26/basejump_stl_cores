@@ -8,6 +8,7 @@ filesets:
     files:
       - bsg_misc/bsg_defines.v: {is_include_file : true}
       - bsg_misc/bsg_gray_to_binary.v
+      - bsg_misc/bsg_scan.v
     file_type: systemVerilogSource
   
   tb:
