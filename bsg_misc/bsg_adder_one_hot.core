@@ -12,7 +12,8 @@ filesets:
   
   tb:
     files:
-      - testing/bsg_adder_one_hot/test.v
+      - testing/bsg_misc/bsg_adder_one_hot/bsg_adder_one_hot_tb.cpp : {file_type: cppSource}
+      - testing/bsg_misc/bsg_adder_one_hot/bsg_adder_one_hot_test.v
     file_type: systemVerilogSource
 
 targets:
@@ -36,7 +37,7 @@ targets:
     tools:
       verilator:
         verilator_options: [--trace]
-    toplevel: test
+    toplevel: bsg_adder_one_hot_test
 
 parameters:
   width_p:
