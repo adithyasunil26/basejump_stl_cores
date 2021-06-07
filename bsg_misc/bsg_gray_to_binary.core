@@ -1,0 +1,49 @@
+CAPI=2:
+
+name: ::bsg_gray_to_binary:0-r1
+description: gray_to_binary
+
+filesets:
+  rtl:
+    files:
+      - bsg_misc/bsg_defines.v: {is_include_file : true}
+      - bsg_misc/bsg_gray_to_binary.v
+    file_type: systemVerilogSource
+  
+  tb:
+    files:
+      - testing/bsg_misc/bsg_gray_to_binary/test_bsg.v
+    file_type: systemVerilogSource
+
+targets:
+  default:
+    filesets: [rtl]
+  
+  lint:
+    default_tool: verilator
+    filesets: [rtl]
+    tools:
+      verilator: 
+        mode: lint-only
+    toplevel: bsg_gray_to_binary
+    parameters: 
+      - width_p=2
+  
+  verilator_tb:
+    default_tool: verilator
+    filesets: [rtl, tb]
+    tools:
+      verilator:
+        verilator_options: [--trace]
+    toplevel: test
+
+parameters:
+  width_p:
+    datatype : int
+    default  : -1
+    paramtype: vlogparam
+
+provider :
+  name : github
+  user : bespoke-silicon-group
+  repo : basejump_stl
