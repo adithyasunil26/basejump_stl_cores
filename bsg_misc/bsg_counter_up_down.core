@@ -9,11 +9,6 @@ filesets:
       - bsg_misc/bsg_defines.v: {is_include_file : true}
       - bsg_misc/bsg_counter_up_down.v
     file_type: systemVerilogSource
-  
-  tb:
-    files:
-      - testing/bsg_misc/bsg_counter_up_down/test_bsg.v
-    file_type: systemVerilogSource
 
 targets:
   default:
@@ -29,15 +24,7 @@ targets:
     parameters:
       - max_val_p=7
       - init_val_p=0
-      - max_step_p=1
-  
-  verilator_tb:
-    default_tool: verilator
-    filesets: [rtl, tb]
-    tools:
-      verilator:
-        verilator_options: [--trace]
-    toplevel: test_bsg
+      - max_step_p=2
 
 parameters:
   max_val_p:
