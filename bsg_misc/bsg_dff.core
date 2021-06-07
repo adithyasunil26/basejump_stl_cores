@@ -12,7 +12,8 @@ filesets:
   
   tb:
     files:
-      - testing/bsg_misc/bsg_dff/test_bsg.v
+      - testing/bsg_misc/bsg_dff/bsg_dff_test.v
+      - testing/bsg_misc/bsg_dff/bsg_dff_tb.cpp : { file_type : cppSource }
     file_type: systemVerilogSource
 
 targets:
@@ -35,7 +36,7 @@ targets:
     tools:
       verilator:
         verilator_options: [--trace]
-    toplevel: test
+    toplevel: bsg_dff_test
 
 parameters:
   width_p:
@@ -50,7 +51,6 @@ parameters:
     datatype : int
     default  : 1
     paramtype: vlogparam
-
 
 provider :
   name : github
