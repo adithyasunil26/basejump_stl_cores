@@ -8,6 +8,7 @@ filesets:
     files:
       - bsg_misc/bsg_defines.v: {is_include_file : true}
       - bsg_misc/bsg_mul.v
+      - bsg_misc/bsg_mul_pipelined.v
     file_type: systemVerilogSource
   
   tb:
