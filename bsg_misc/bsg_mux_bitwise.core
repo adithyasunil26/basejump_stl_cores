@@ -1,13 +1,14 @@
 CAPI=2:
 
-name: ::bsg_abs:0-r1
-description: abs
+name: ::bsg_mux_bitwise:0-r1
+description: mux_bitwise
 
 filesets:
   rtl:
     files:
       - bsg_misc/bsg_defines.v: {is_include_file : true}
-      - bsg_misc/bsg_abs.v
+      - bsg_misc/bsg_mux_segmented.v
+      - bsg_misc/bsg_mux_bitwise.v
     file_type: systemVerilogSource
 
 targets:
@@ -20,7 +21,7 @@ targets:
     tools:
       verilator: 
         mode: lint-only
-    toplevel: bsg_abs
+    toplevel: bsg_mux_bitwise
     parameters: 
       - width_p=2
 
