@@ -1,0 +1,43 @@
+CAPI=2:
+
+name: ::bsg_priority_encode:0-r1
+description: priority_encode
+
+filesets:
+  rtl:
+    files:
+      - bsg_misc/bsg_defines.v: {is_include_file : true}
+      - bsg_misc/bsg_priority_encode.v
+      - bsg_misc/bsg_priority_encode_one_hot_out.v
+      - bsg_misc/bsg_encode_one_hot.v
+      - bsg_misc/bsg_scan.v
+    file_type: systemVerilogSource
+
+targets:
+  default:
+    filesets: [rtl]
+  
+  lint:
+    default_tool: verilator
+    filesets: [rtl]
+    tools:
+      verilator: 
+        mode: lint-only
+    toplevel: bsg_priority_encode
+    parameters: 
+      - width_p=8
+
+parameters:
+  width_p:
+    datatype : int
+    default  : -1
+    paramtype: vlogparam
+  lo_to_hi_p:
+    datatype : int
+    default  : -1
+    paramtype: vlogparam
+
+provider :
+  name : github
+  user : bespoke-silicon-group
+  repo : basejump_stl
