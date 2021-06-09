@@ -1,0 +1,140 @@
+CAPI=2:
+
+name: ::bsg_abs:0-r1
+description: abs
+
+filesets:
+  rtl:
+    files:
+      - bsg_misc/bsg_defines.v: {is_include_file : true}
+      - bsg_misc/bsg_abs.v
+    file_type: systemVerilogSource
+
+targets:
+  default:
+    filesets: [rtl]
+  
+  lint:
+    default_tool: verilator
+    filesets: [rtl]
+    tools:
+      verilator: 
+        mode: lint-only
+    toplevel: bsg_abs
+    parameters: 
+      - width_p=2
+
+parameters:
+  width_p:
+    datatype : int
+    default  : -1
+    paramtype: vlogparam
+
+provider :
+  name : github
+  user : bespoke-silicon-group
+  repo : basejump_stl
+
+bsg_abs.v                           
+bsg_adder_cin.v                     
+bsg_adder_one_hot.v                 
+bsg_adder_ripple_carry.v            
+bsg_and.v                           
+bsg_arb_fixed.v                     
+bsg_arb_round_robin.v               
+bsg_array_concentrate_static.v      
+bsg_array_reverse.v                 
+bsg_binary_plus_one_to_gray.v       
+bsg_buf.v                           
+bsg_buf_ctrl.v                      
+bsg_circular_ptr.v                  
+bsg_clkbuf.v                        
+bsg_clkgate_optional.v              
+bsg_concentrate_static.v            
+bsg_counter_clear_up.v              
+bsg_counter_clear_up_one_hot.v      
+bsg_counter_clock_downsample.v      
+bsg_counter_dynamic_limit.v         
+bsg_counter_dynamic_limit_en.v      
+bsg_counter_overflow_en.v           
+bsg_counter_overflow_set_en.v       
+bsg_counter_set_down.v              
+bsg_counter_set_en.v                
+bsg_counter_up_down.v               
+bsg_counter_up_down_variable.v      
+bsg_counting_leading_zeros.v        
+bsg_crossbar_control_basic_o_by_i.v 
+bsg_crossbar_o_by_i.v               
+bsg_cycle_counter.v                 
+bsg_decode.v                        
+bsg_decode_with_v.v                 
+bsg_defines.v                       
+bsg_dff.v                           
+bsg_dff_async_reset.v               
+bsg_dff_chain.v                     
+bsg_dff_en.v                        
+bsg_dff_en_bypass.v                 
+bsg_dff_gatestack.v                 
+bsg_dff_negedge_reset.v             
+bsg_dff_reset.v                     
+bsg_dff_reset_en.v                  
+bsg_dff_reset_en_bypass.v           
+bsg_dff_reset_set_clear.v           
+bsg_dlatch.v                        
+bsg_edge_detect.v                   
+bsg_encode_one_hot.v                
+bsg_expand_bitmask.v                
+bsg_gray_to_binary.v                
+bsg_hash_bank.v                     
+bsg_hash_bank_reverse.v
+bsg_id_pool.v
+bsg_idiv_iterative.v
+bsg_idiv_iterative_controller.v
+bsg_imul_iterative.v
+bsg_inv.v
+bsg_less_than.v
+bsg_level_shift_up_down_sink.v
+bsg_level_shift_up_down_source.v
+bsg_lfsr.v
+bsg_locking_arb_fixed.v
+bsg_lru_pseudo_tree_backup.v
+bsg_lru_pseudo_tree_decode.v
+bsg_lru_pseudo_tree_encode.v
+bsg_mul
+bsg_mul.v
+bsg_mul_array.v
+bsg_mul_array_row.v
+bsg_mul_pipelined.v
+bsg_mul_synth.v
+bsg_mux.v
+bsg_mux2_gatestack.v
+bsg_mux_bitwise.v
+bsg_mux_butterfly.v
+bsg_mux_one_hot.v
+bsg_mux_segmented.v
+bsg_muxi2_gatestack.v
+bsg_nand.v
+bsg_nor2.v
+bsg_nor3.v
+bsg_pg_tree.v
+bsg_popcount.v
+bsg_priority_encode.v
+bsg_priority_encode_one_hot_out.v
+bsg_reduce.v
+bsg_reduce_segmented.v
+bsg_rotate_left.v
+bsg_rotate_right.v
+bsg_round_robin_arb.py
+bsg_round_robin_arb.v
+bsg_scan.v
+bsg_strobe.v
+bsg_swap.v
+bsg_thermometer_count.v
+bsg_tiehi.v
+bsg_tielo.v
+bsg_transpose.v
+bsg_unconcentrate_static.v
+bsg_wait_after_reset.v
+bsg_wait_cycles.v
+bsg_xnor.v
+bsg_xor.v
