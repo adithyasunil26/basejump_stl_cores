@@ -1,0 +1,41 @@
+CAPI=2:
+
+name: ::bsg_mux_segmented:0-r1
+description: mux_segmented
+
+filesets:
+  rtl:
+    files:
+      - bsg_misc/bsg_defines.v: {is_include_file : true}
+      - bsg_misc/bsg_mux_segmented.v
+    file_type: systemVerilogSource
+
+targets:
+  default:
+    filesets: [rtl]
+  
+  lint:
+    default_tool: verilator
+    filesets: [rtl]
+    tools:
+      verilator: 
+        mode: lint-only
+    toplevel: bsg_mux_segmented
+    parameters: 
+      - segments_p=2
+      - segment_width_p=2
+
+parameters:
+  segments_p:
+    datatype : int
+    default  : -1
+    paramtype: vlogparam
+  segment_width_p:
+    datatype : int
+    default  : -1
+    paramtype: vlogparam
+
+provider :
+  name : github
+  user : bespoke-silicon-group
+  repo : basejump_stl
