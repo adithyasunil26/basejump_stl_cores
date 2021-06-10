@@ -1,0 +1,41 @@
+CAPI=2:
+
+name: ::bsg_circular_ptr:0-r1
+description: implements a circular pointer
+
+filesets:
+  rtl:
+    files:
+      - bsg_misc/bsg_defines.v: {is_include_file : true}
+      - bsg_misc/bsg_circular_ptr.v
+    file_type: systemVerilogSource
+
+targets:
+  default:
+    filesets: [rtl]
+  
+  lint:
+    default_tool: verilator
+    filesets: [rtl]
+    tools:
+      verilator: 
+        mode: lint-only
+    toplevel: bsg_circular_ptr
+    parameters: 
+      - slots_p=2
+      - max_add_p=2
+
+parameters:
+  slots_p:
+    datatype : int
+    default  : -1
+    paramtype: vlogparam
+  max_add_p:
+    datatype : int
+    default  : -1
+    paramtype: vlogparam
+
+provider :
+  name : github
+  user : bespoke-silicon-group
+  repo : basejump_stl

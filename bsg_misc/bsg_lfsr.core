@@ -1,0 +1,44 @@
+CAPI=2:
+
+name: ::bsg_lfsr:0-r1
+description: lfsr
+
+filesets:
+  rtl:
+    files:
+      - bsg_misc/bsg_defines.v: {is_include_file : true}
+      - bsg_misc/bsg_lfsr.v
+    file_type: systemVerilogSource
+
+targets:
+  default:
+    filesets: [rtl]
+  
+  lint:
+    default_tool: verilator
+    filesets: [rtl]
+    tools:
+      verilator: 
+        mode: lint-only
+    toplevel: bsg_lfsr
+    parameters: 
+      - width_p=2
+
+parameters:
+  width_p:
+    datatype : int
+    default  : -1
+    paramtype: vlogparam
+  init_val_p:
+    datatype : int
+    default  : 1
+    paramtype: vlogparam
+  xor_mask_p:
+    datatype : int
+    default  : 0
+    paramtype: vlogparam
+
+provider :
+  name : github
+  user : bespoke-silicon-group
+  repo : basejump_stl
