@@ -8,8 +8,9 @@ filesets:
     files:
       - bsg_misc/bsg_defines.v: {is_include_file : true}
       - bsg_misc/bsg_edge_detect.v
-      - bsg_misc/bsg_dff_reset.v
     file_type: systemVerilogSource
+    depend:
+      - bsg_dff_reset
 
 targets:
   default:

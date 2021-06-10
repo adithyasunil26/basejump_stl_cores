@@ -7,9 +7,10 @@ filesets:
   rtl:
     files:
       - bsg_misc/bsg_defines.v: {is_include_file : true}
-      - bsg_misc/bsg_mux_segmented.v
       - bsg_misc/bsg_mux_bitwise.v
     file_type: systemVerilogSource
+    depend:
+      - bsg_mux_segmented
 
 targets:
   default:

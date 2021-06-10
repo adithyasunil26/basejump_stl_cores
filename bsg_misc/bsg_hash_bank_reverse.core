@@ -8,10 +8,11 @@ filesets:
     files:
       - bsg_misc/bsg_defines.v: {is_include_file : true}
       - bsg_misc/bsg_hash_bank_reverse.v
-      - bsg_misc/bsg_transpose.v
-      - bsg_misc/bsg_reduce_segmented.v
-      - bsg_misc/bsg_scan.v
     file_type: systemVerilogSource
+    depend:
+      - bsg_scan
+      - bsg_transpose
+      - bsg_reduce_segmented
 
 targets:
   default:
