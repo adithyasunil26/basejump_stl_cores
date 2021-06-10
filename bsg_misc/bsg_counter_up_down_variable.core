@@ -1,13 +1,13 @@
 CAPI=2:
 
-name: ::bsg_counter_up_down:0-r1
-description: up-down counter
+name: ::bsg_counter_up_down_variable:0-r1
+description: up-down counter with initial and max values
 
 filesets:
   rtl:
     files:
       - bsg_misc/bsg_defines.v: {is_include_file : true}
-      - bsg_misc/bsg_counter_up_down.v
+      - bsg_misc/bsg_counter_up_down_variable.v
     file_type: systemVerilogSource
 
 targets:
@@ -20,7 +20,7 @@ targets:
     tools:
       verilator: 
         mode: lint-only
-    toplevel: bsg_counter_up_down
+    toplevel: bsg_counter_up_down_variable
     parameters:
       - max_val_p=7
       - init_val_p=0

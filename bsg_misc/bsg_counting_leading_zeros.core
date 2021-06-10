@@ -1,13 +1,17 @@
 CAPI=2:
 
-name: ::bsg_counter_up_down:0-r1
-description: up-down counter
+name: ::bsg_counting_leading_zeros:0-r1
+description: counting_leading_zeros
 
 filesets:
   rtl:
     files:
       - bsg_misc/bsg_defines.v: {is_include_file : true}
-      - bsg_misc/bsg_counter_up_down.v
+      - bsg_misc/bsg_counting_leading_zeros.v
+      - bsg_misc/bsg_priority_encode.v
+      - bsg_misc/bsg_scan.v
+      - bsg_misc/bsg_priority_encode_one_hot_out.v
+      - bsg_misc/bsg_encode_one_hot.v
     file_type: systemVerilogSource
 
 targets:
@@ -20,22 +24,12 @@ targets:
     tools:
       verilator: 
         mode: lint-only
-    toplevel: bsg_counter_up_down
-    parameters:
-      - max_val_p=7
-      - init_val_p=0
-      - max_step_p=2
+    toplevel: bsg_counting_leading_zeros
+    parameters: 
+      - width_p=2
 
 parameters:
-  max_val_p:
-    datatype : int
-    default  : -1
-    paramtype: vlogparam
-  init_val_p:
-    datatype : int
-    default  : -1
-    paramtype: vlogparam
-  max_step_p:
+  width_p:
     datatype : int
     default  : -1
     paramtype: vlogparam
