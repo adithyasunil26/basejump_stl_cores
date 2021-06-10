@@ -1,0 +1,44 @@
+CAPI=2:
+
+name: ::bsg_hash_bank_reverse:0-r1
+description: hash_bank_reverse
+
+filesets:
+  rtl:
+    files:
+      - bsg_misc/bsg_defines.v: {is_include_file : true}
+      - bsg_misc/bsg_hash_bank_reverse.v
+      - bsg_misc/bsg_transpose.v
+      - bsg_misc/bsg_reduce_segmented.v
+      - bsg_misc/bsg_scan.v
+    file_type: systemVerilogSource
+
+targets:
+  default:
+    filesets: [rtl]
+  
+  lint:
+    default_tool: verilator
+    filesets: [rtl]
+    tools:
+      verilator: 
+        mode: lint-only
+    toplevel: bsg_hash_bank_reverse
+    parameters: 
+      - width_p=2
+      - banks_p=1
+
+parameters:
+  width_p:
+    datatype : int
+    default  : -1
+    paramtype: vlogparam
+  banks_p:
+    datatype : int
+    default  : -1
+    paramtype: vlogparam
+
+provider :
+  name : github
+  user : bespoke-silicon-group
+  repo : basejump_stl

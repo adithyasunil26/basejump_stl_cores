@@ -1,0 +1,29 @@
+CAPI=2:
+
+name: ::bsg_clkgate_optional:0-r1
+description: clkgate_optional
+
+filesets:
+  rtl:
+    files:
+      - bsg_misc/bsg_defines.v: {is_include_file : true}
+      - bsg_misc/bsg_clkgate_optional.v
+      - bsg_misc/bsg_dlatch.v
+    file_type: systemVerilogSource
+
+targets:
+  default:
+    filesets: [rtl]
+  
+  lint:
+    default_tool: verilator
+    filesets: [rtl]
+    tools:
+      verilator: 
+        mode: lint-only
+    toplevel: bsg_clkgate_optional
+
+provider :
+  name : github
+  user : bespoke-silicon-group
+  repo : basejump_stl

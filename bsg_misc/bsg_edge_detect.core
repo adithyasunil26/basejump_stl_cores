@@ -1,0 +1,37 @@
+CAPI=2:
+
+name: ::bsg_edge_detect:0-r1
+description: edge_detect
+
+filesets:
+  rtl:
+    files:
+      - bsg_misc/bsg_defines.v: {is_include_file : true}
+      - bsg_misc/bsg_edge_detect.v
+      - bsg_misc/bsg_dff_reset.v
+    file_type: systemVerilogSource
+
+targets:
+  default:
+    filesets: [rtl]
+  
+  lint:
+    default_tool: verilator
+    filesets: [rtl]
+    tools:
+      verilator: 
+        mode: lint-only
+    toplevel: bsg_edge_detect
+    parameters: 
+      - falling_not_rising_p=0
+
+parameters:
+  falling_not_rising_p:
+    datatype : int
+    default  : 0
+    paramtype: vlogparam
+
+provider :
+  name : github
+  user : bespoke-silicon-group
+  repo : basejump_stl
