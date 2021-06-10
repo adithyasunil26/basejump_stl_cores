@@ -1,0 +1,58 @@
+CAPI=2:
+
+name: ::bsg_reduce_segmented:0-r1
+description: Performs segmented reduction
+
+filesets:
+  rtl:
+    files:
+      - bsg_misc/bsg_defines.v: {is_include_file : true}
+      - bsg_misc/bsg_reduce_segmented.v
+    file_type: systemVerilogSource
+
+targets:
+  default:
+    filesets: [rtl]
+  
+  lint:
+    default_tool: verilator
+    filesets: [rtl]
+    tools:
+      verilator: 
+        mode: lint-only
+    toplevel: bsg_reduce_segmented
+    parameters: 
+      - segments_p=2
+      - segment_width_p=2
+      - xor_p=1
+
+parameters:
+  segments_p:
+    datatype : int
+    default  : -1
+    paramtype: vlogparam
+  segment_width_p:
+    datatype : int
+    default  : -1
+    paramtype: vlogparam
+  xor_p:
+    datatype : int
+    default  : 0
+    paramtype: vlogparam
+  and_p:
+    datatype : int
+    default  : 0
+    paramtype: vlogparam
+  or_p:
+    datatype : int
+    default  : 0
+    paramtype: vlogparam
+  harden_p: 
+    datatype : int
+    default  : 0
+    paramtype: vlogparam
+
+provider :
+  name : github
+  user : bespoke-silicon-group
+  repo : basejump_stl

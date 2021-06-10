@@ -1,0 +1,53 @@
+CAPI=2:
+
+name: ::bsg_reduce:0-r1
+description: Performs reduction
+
+filesets:
+  rtl:
+    files:
+      - bsg_misc/bsg_defines.v: {is_include_file : true}
+      - bsg_misc/bsg_reduce.v
+    file_type: systemVerilogSource
+
+targets:
+  default:
+    filesets: [rtl]
+  
+  lint:
+    default_tool: verilator
+    filesets: [rtl]
+    tools:
+      verilator: 
+        mode: lint-only
+    toplevel: bsg_reduce
+    parameters: 
+      - width_p=3
+      - xor_p=1
+
+parameters:
+  width_p:
+    datatype : int
+    default  : -1
+    paramtype: vlogparam
+  xor_p:
+    datatype : int
+    default  : 0
+    paramtype: vlogparam
+  and_p:
+    datatype : int
+    default  : 0
+    paramtype: vlogparam
+  or_p:
+    datatype : int
+    default  : 0
+    paramtype: vlogparam
+  harden_p: 
+    datatype : int
+    default  : 0
+    paramtype: vlogparam
+
+provider :
+  name : github
+  user : bespoke-silicon-group
+  repo : basejump_stl

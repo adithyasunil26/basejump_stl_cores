@@ -1,0 +1,36 @@
+CAPI=2:
+
+name: ::bsg_unconcentrate_static:0-r1
+description: takes an input vector and spreads the elements according to a bit pattern
+
+filesets:
+  rtl:
+    files:
+      - bsg_misc/bsg_defines.v: {is_include_file : true}
+      - bsg_misc/bsg_unconcentrate_static.v
+    file_type: systemVerilogSource
+
+targets:
+  default:
+    filesets: [rtl]
+  
+  lint:
+    default_tool: verilator
+    filesets: [rtl]
+    tools:
+      verilator: 
+        mode: lint-only
+    toplevel: bsg_unconcentrate_static
+    parameters: 
+      - pattern_els_p=3
+
+parameters:
+  pattern_els_p:
+    datatype : int
+    default  : -1
+    paramtype: vlogparam
+
+provider :
+  name : github
+  user : bespoke-silicon-group
+  repo : basejump_stl
