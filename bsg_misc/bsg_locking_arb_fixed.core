@@ -1,0 +1,44 @@
+CAPI=2:
+
+name: ::bsg_locking_arb_fixed:0-r1
+description: locking_arb_fixed
+
+filesets:
+  rtl:
+    files:
+      - bsg_misc/bsg_defines.v: {is_include_file : true}
+      - bsg_misc/bsg_locking_arb_fixed.v
+      - bsg_misc/bsg_dff_reset_en.v
+      - bsg_misc/bsg_arb_fixed.v
+      - bsg_misc/bsg_scan.v
+      - bsg_misc/bsg_priority_encode_one_hot_out.v
+    file_type: systemVerilogSource
+
+targets:
+  default:
+    filesets: [rtl]
+  
+  lint:
+    default_tool: verilator
+    filesets: [rtl]
+    tools:
+      verilator: 
+        mode: lint-only
+    toplevel: bsg_locking_arb_fixed
+    parameters: 
+      - inputs_p=2
+
+parameters:
+  inputs_p:
+    datatype : int
+    default  : -1
+    paramtype: vlogparam
+  lo_to_hi_p:
+    datatype : int
+    default  : 0
+    paramtype: vlogparam
+
+provider :
+  name : github
+  user : bespoke-silicon-group
+  repo : basejump_stl
