@@ -8,8 +8,9 @@ filesets:
     files:
       - bsg_misc/bsg_defines.v: {is_include_file : true}
       - bsg_misc/bsg_mux_butterfly.v
-      - bsg_misc/bsg_swap.v
     file_type: systemVerilogSource
+    depend:
+      - bsg_swap
 
 targets:
   default:

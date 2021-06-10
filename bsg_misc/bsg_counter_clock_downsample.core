@@ -8,15 +8,17 @@ filesets:
     files:
       - bsg_misc/bsg_defines.v: {is_include_file : true}
       - bsg_misc/bsg_counter_clock_downsample.v
-      - bsg_misc/bsg_strobe.v
-      - bsg_misc/bsg_dff.v
-      - bsg_misc/bsg_xnor.v
-      - bsg_misc/bsg_nand.v
-      - bsg_misc/bsg_nor3.v
-      - bsg_misc/bsg_reduce.v
-      - bsg_misc/bsg_buf.v
-      - bsg_misc/bsg_muxi2_gatestack.v
     file_type: systemVerilogSource
+    depend:
+      - bsg_dff
+      - bsg_strobe
+      - bsg_xnor
+      - bsg_nand
+      - bsg_nor3
+      - bsg_reduce
+      - bsg_buf
+      - bsg_muxi2_gatestack
+
 
 targets:
   default:

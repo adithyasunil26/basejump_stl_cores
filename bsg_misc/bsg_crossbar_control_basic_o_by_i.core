@@ -8,12 +8,13 @@ filesets:
     files:
       - bsg_misc/bsg_defines.v: {is_include_file : true}
       - bsg_misc/bsg_crossbar_control_basic_o_by_i.v
-      - bsg_misc/bsg_decode_with_v.v
-      - bsg_misc/bsg_decode.v
-      - bsg_misc/bsg_scan.v
-      - bsg_misc/bsg_transpose.v
-      - bsg_misc/bsg_arb_round_robin.v
     file_type: systemVerilogSource
+    depend:
+      - bsg_decode_with_v
+      - bsg_decode
+      - bsg_scan
+      - bsg_transpose
+      - bsg_arb_round_robin
 
 targets:
   default:

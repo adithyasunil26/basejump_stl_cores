@@ -8,10 +8,10 @@ filesets:
     files:
       - bsg_misc/bsg_defines.v: {is_include_file : true}
       - bsg_misc/bsg_priority_encode.v
-      - bsg_misc/bsg_priority_encode_one_hot_out.v
-      - bsg_misc/bsg_encode_one_hot.v
-      - bsg_misc/bsg_scan.v
     file_type: systemVerilogSource
+    depend:
+      - bsg_priority_encode_one_hot_out
+      - bsg_encode_one_hot
 
 targets:
   default:

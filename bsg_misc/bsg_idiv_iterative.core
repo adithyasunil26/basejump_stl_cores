@@ -8,14 +8,15 @@ filesets:
     files:
       - bsg_misc/bsg_defines.v: {is_include_file : true}
       - bsg_misc/bsg_idiv_iterative.v
-      - bsg_misc/bsg_dff_en.v
-      - bsg_misc/bsg_mux.v
-      - bsg_misc/bsg_mux_one_hot.v
-      - bsg_misc/bsg_adder_cin.v
-      - bsg_misc/bsg_dff_en.v
-      - bsg_misc/bsg_idiv_iterative_controller.v
-      - bsg_misc/bsg_counter_clear_up.v
     file_type: systemVerilogSource
+    depend:
+      - bsg_dff_en
+      - bsg_mux
+      - bsg_mux_one_hot
+      - bsg_adder_cin
+      - bsg_xnor
+      - bsg_nor2
+      - bsg_idiv_iterative_controller
 
 targets:
   default:
