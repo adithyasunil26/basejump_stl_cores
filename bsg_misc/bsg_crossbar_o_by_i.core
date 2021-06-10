@@ -1,0 +1,48 @@
+CAPI=2:
+
+name: ::bsg_crossbar_o_by_i:0-r1
+description: crossbar_o_by_i
+
+filesets:
+  rtl:
+    files:
+      - bsg_misc/bsg_defines.v: {is_include_file : true}
+      - bsg_misc/bsg_crossbar_o_by_i.v
+      - bsg_misc/bsg_mux_one_hot.v
+    file_type: systemVerilogSource
+
+targets:
+  default:
+    filesets: [rtl]
+  
+  lint:
+    default_tool: verilator
+    filesets: [rtl]
+    tools:
+      verilator: 
+        mode: lint-only
+    toplevel: bsg_crossbar_o_by_i
+    parameters:
+      - i_els_p=2
+      - o_els_p=2
+      - width_p=2
+
+parameters:
+  i_els_p:
+    datatype : int
+    default  : -1
+    paramtype: vlogparam
+  o_els_p:
+    datatype : int
+    default  : -1
+    paramtype: vlogparam
+  width_p:
+    datatype : int
+    default  : -1
+    paramtype: vlogparam
+
+provider :
+  name : github
+  user : bespoke-silicon-group
+  repo : basejump_stl
+  
