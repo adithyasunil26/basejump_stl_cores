@@ -12,8 +12,12 @@ filesets:
   
   tb:
     files:
-      - testing/bsg_misc/bsg_adder_one_hot/bsg_adder_one_hot_tb.cpp : {file_type: cppSource}
-      - testing/bsg_misc/bsg_adder_one_hot/bsg_adder_one_hot_test.v
+      - testing/bsg_misc/bsg_adder_one_hot/test_bsg.cpp : {file_type: cppSource}
+      - testing/bsg_misc/bsg_adder_one_hot/test_bsg.v
+      - bsg_test/bsg_nonsynth_dpi_clock_gen.v
+      - bsg_test/bsg_nonsynth_dpi_clock_gen.cpp: { file_type: cppSource } 
+      - bsg_test/bsg_nonsynth_dpi_clock_gen.hpp: { file_type: cppSource ,is_include_file : true} 
+      - bsg_test/bsg_nonsynth_reset_gen.v
     file_type: systemVerilogSource
 
 targets:
@@ -36,8 +40,11 @@ targets:
     filesets: [rtl, tb]
     tools:
       verilator:
-        verilator_options: [--trace]
-    toplevel: bsg_adder_one_hot_test
+        verilator_options: [--trace -Wno-lint]
+    toplevel: test_bsg
+    parameters: 
+      - width_p=4
+      - sim_clk_period=10
 
 parameters:
   width_p:
@@ -47,6 +54,10 @@ parameters:
   output_width_p:
     datatype : int
     default  : -1
+    paramtype: vlogparam
+  sim_clk_period: 
+    datatype : int
+    default  : 10
     paramtype: vlogparam
 
 provider :

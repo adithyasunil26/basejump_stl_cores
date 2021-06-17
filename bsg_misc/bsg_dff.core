@@ -12,8 +12,12 @@ filesets:
   
   tb:
     files:
-      - testing/bsg_misc/bsg_dff/bsg_dff_test.v
-      - testing/bsg_misc/bsg_dff/bsg_dff_tb.cpp : { file_type : cppSource }
+      - testing/bsg_misc/bsg_dff/test_bsg.v
+      - testing/bsg_misc/bsg_dff/test_bsg.cpp : { file_type : cppSource }
+      - bsg_test/bsg_nonsynth_dpi_clock_gen.v
+      - bsg_test/bsg_nonsynth_dpi_clock_gen.cpp: { file_type: cppSource } 
+      - bsg_test/bsg_nonsynth_dpi_clock_gen.hpp: { file_type: cppSource ,is_include_file : true} 
+      - bsg_test/bsg_nonsynth_reset_gen.v
     file_type: systemVerilogSource
 
 targets:
@@ -36,7 +40,9 @@ targets:
     tools:
       verilator:
         verilator_options: [--trace]
-    toplevel: bsg_dff_test
+    toplevel: test_bsg
+    parameters: 
+      - width_p=3
 
 parameters:
   width_p:
@@ -50,6 +56,10 @@ parameters:
   strength_p:
     datatype : int
     default  : 1
+    paramtype: vlogparam
+  sim_clk_period: 
+    datatype : int
+    default  : 10
     paramtype: vlogparam
 
 provider :
