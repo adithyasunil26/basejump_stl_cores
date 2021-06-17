@@ -44,7 +44,7 @@ targets:
     toplevel: test_bsg
     parameters: 
       - width_p=4
-      - sim_clk_period=10
+      - sim_clk_period_p=10
 
 parameters:
   width_p:
@@ -55,7 +55,7 @@ parameters:
     datatype : int
     default  : -1
     paramtype: vlogparam
-  sim_clk_period: 
+  sim_clk_period_p: 
     datatype : int
     default  : 10
     paramtype: vlogparam
