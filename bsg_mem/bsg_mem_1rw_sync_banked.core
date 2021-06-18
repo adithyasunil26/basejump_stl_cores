@@ -1,17 +1,19 @@
 CAPI=2:
 
-name: ::bsg_mem_1rw_sync_synth:0-r1
+name: ::bsg_mem_1rw_sync_banked:0-r1
 description: Synchronous 1-port ram
 
 filesets:
   rtl:
     files:
       - bsg_misc/bsg_defines.v: {is_include_file : true}
-      - bsg_mem/bsg_mem_1rw_sync_synth.v
+      - bsg_mem/bsg_mem_1rw_sync_banked.v
     file_type: systemVerilogSource
     depend:
-      - bsg_dff
-      - bsg_dff_en_bypass
+      - bsg_mem_1rw_sync
+      - bsg_decode_with_v
+      - bsg_dff_en
+      - bsg_mux
 
 targets:
   default:
@@ -23,8 +25,8 @@ targets:
     tools:
       verilator: 
         mode: lint-only
-        verilator_options: [-Wno-WIDTH]
-    toplevel: bsg_mem_1rw_sync_synth
+        verilator_options: [-Wno-PINMISSING -Wno-WIDTH]
+    toplevel: bsg_mem_1rw_sync_banked
     parameters: 
       - width_p=3
       - els_p=4
@@ -42,7 +44,11 @@ parameters:
     datatype : int
     default  : 0
     paramtype: vlogparam
-  verbose_p:
+  num_width_bank_p:
+    datatype : int
+    default  : 1
+    paramtype: vlogparam
+  num_depth_bank_p:
     datatype : int
     default  : 1
     paramtype: vlogparam
