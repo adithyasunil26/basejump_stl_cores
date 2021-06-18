@@ -1,37 +1,32 @@
 CAPI=2:
 
-name: ::bsg_strobe:0-r1
-description: counter will counter down from val_i to 0
+name: ::bsg_mem_1r1w:0-r1
+description: 1 read-port, 1 write-port ram; reads are asynchronous
 
 filesets:
   rtl:
     files:
       - bsg_misc/bsg_defines.v: {is_include_file : true}
-      - bsg_misc/bsg_strobe.v
+      - bsg_mem/bsg_mem_1r1w.v
     file_type: systemVerilogSource
     depend:
-      - bsg_dff
-      - bsg_xnor
-      - bsg_nand
-      - bsg_nor3
-      - bsg_reduce
-      - bsg_buf
-      - bsg_muxi2_gatestack
+      - bsg_mem_1r1w_synth
 
 targets:
   default:
     filesets: [rtl]
-  
+
   lint:
     default_tool: verilator
     filesets: [rtl]
     tools:
       verilator: 
         mode: lint-only
-        verilator_options: [-Wno-WIDTH -Wno-WIDTHCONCAT]
-    toplevel: bsg_strobe
+        verilator_options: [-Wno-WIDTH]
+    toplevel: bsg_mem_1r1w
     parameters: 
-      - width_p=2
+      - width_p=3
+      - els_p=4
 
 parameters:
   width_p:
@@ -39,6 +34,14 @@ parameters:
     default  : -1
     paramtype: vlogparam
   harden_p:
+    datatype : int
+    default  : 0
+    paramtype: vlogparamw
+  els_p:
+    datatype : int
+    default  : -1
+    paramtype: vlogparam
+  read_write_same_addr_p:
     datatype : int
     default  : 0
     paramtype: vlogparam

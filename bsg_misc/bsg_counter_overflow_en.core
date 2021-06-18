@@ -20,6 +20,7 @@ targets:
     tools:
       verilator: 
         mode: lint-only
+        verilator_options: [-Wno-WIDTH]
     toplevel: bsg_counter_overflow_en
     parameters: 
       - max_val_p=2

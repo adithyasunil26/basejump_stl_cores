@@ -20,6 +20,7 @@ targets:
     tools:
       verilator: 
         mode: lint-only
+        verilator_options: [-Wno-WIDTH]
     toplevel: bsg_wait_cycles
     parameters: 
       - cycles_p=3

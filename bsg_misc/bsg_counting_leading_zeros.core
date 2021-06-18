@@ -25,6 +25,7 @@ targets:
     tools:
       verilator: 
         mode: lint-only
+        verilator_options: [-Wno-UNOPTFLAT]
     toplevel: bsg_counting_leading_zeros
     parameters: 
       - width_p=2

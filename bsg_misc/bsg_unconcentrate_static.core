@@ -20,6 +20,7 @@ targets:
     tools:
       verilator: 
         mode: lint-only
+        verilator_options: [-Wno-WIDTH]
     toplevel: bsg_unconcentrate_static
     parameters: 
       - pattern_els_p=3

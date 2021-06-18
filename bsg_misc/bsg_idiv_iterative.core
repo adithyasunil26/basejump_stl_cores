@@ -28,6 +28,7 @@ targets:
     tools:
       verilator: 
         mode: lint-only
+        verilator_options: [-Wno-CASEINCOMPLETE -Wno-PINMISSING]
     toplevel: bsg_idiv_iterative
 
 parameters:

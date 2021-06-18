@@ -20,6 +20,7 @@ targets:
     tools:
       verilator: 
         mode: lint-only
+        verilator_options: [-Wno-MULTIDRIVEN]
     toplevel: bsg_dff_gatestack
     parameters: 
       - width_p=2

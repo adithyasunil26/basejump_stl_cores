@@ -20,6 +20,7 @@ targets:
     tools:
       verilator: 
         mode: lint-only
+        verilator_options: [-Wno-WIDTH -Wno-UNOPTFLAT]
     toplevel: bsg_scan
     parameters: 
       - width_p=3

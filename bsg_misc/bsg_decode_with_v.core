@@ -22,6 +22,7 @@ targets:
     tools:
       verilator: 
         mode: lint-only
+        verilator_options: [-Wno-WIDTH]
     toplevel: bsg_decode_with_v
     parameters: 
       - num_out_p=2

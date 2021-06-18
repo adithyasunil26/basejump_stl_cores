@@ -22,6 +22,7 @@ targets:
     tools:
       verilator: 
         mode: lint-only
+        verilator_options: [-Wno-UNOPTFLAT]
     toplevel: bsg_arb_round_robin
     parameters: 
       - width_p=2

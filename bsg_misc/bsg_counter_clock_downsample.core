@@ -30,6 +30,7 @@ targets:
     tools:
       verilator: 
         mode: lint-only
+        verilator_options: [-Wno-WIDTH -Wno-WIDTHCONCAT]
     toplevel: bsg_counter_clock_downsample
     parameters: 
       - width_p=2

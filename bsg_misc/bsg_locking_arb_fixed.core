@@ -23,6 +23,7 @@ targets:
     tools:
       verilator: 
         mode: lint-only
+        verilator_options: [-Wno-UNOPTFLAT]
     toplevel: bsg_locking_arb_fixed
     parameters: 
       - inputs_p=2
