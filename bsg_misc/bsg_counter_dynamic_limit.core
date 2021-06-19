@@ -18,6 +18,7 @@ filesets:
       - bsg_test/bsg_nonsynth_dpi_clock_gen.cpp: { file_type: cppSource } 
       - bsg_test/bsg_nonsynth_dpi_clock_gen.hpp: { file_type: cppSource ,is_include_file : true} 
       - bsg_test/bsg_nonsynth_reset_gen.v
+      - bsg_test/bsg_circular_ptr.v
     file_type: systemVerilogSource
 
 targets:
