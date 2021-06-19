@@ -10,6 +10,17 @@ filesets:
       - bsg_misc/bsg_dff_reset_en.v
     file_type: systemVerilogSource
 
+  tb:
+    files:
+      - testing/bsg_misc/bsg_dff/test_bsg.v
+      - testing/bsg_misc/bsg_dff/test_bsg.cpp : { file_type : cppSource }
+      - bsg_test/bsg_nonsynth_dpi_clock_gen.v
+      - bsg_test/bsg_nonsynth_dpi_clock_gen.cpp: { file_type: cppSource } 
+      - bsg_test/bsg_nonsynth_dpi_clock_gen.hpp: { file_type: cppSource ,is_include_file : true} 
+      - bsg_test/bsg_nonsynth_reset_gen.v
+      - bsg_misc/bsg_cycle_counter.v
+    file_type: systemVerilogSource
+
 targets:
   default:
     filesets: [rtl]
@@ -23,6 +34,16 @@ targets:
     toplevel: bsg_dff_reset_en
     parameters: 
       - width_p=2
+  
+  verilator_tb:
+    default_tool: verilator
+    filesets: [rtl, tb]
+    tools:
+      verilator:
+        verilator_options: [-Wno-lint]
+    toplevel: test_bsg
+    parameters: 
+      - width_p=3
 
 parameters:
   width_p:
@@ -36,6 +57,18 @@ parameters:
   harden_p:
     datatype : int
     default  : 0
+    paramtype: vlogparam
+  sim_clk_period_p: 
+    datatype : int
+    default  : 20
+    paramtype: vlogparam
+  reset_cycles_lo_p: 
+    datatype : int
+    default  : 1
+    paramtype: vlogparam
+  reset_cycles_hi_p: 
+    datatype : int
+    default  : 5
     paramtype: vlogparam
 
 provider :
