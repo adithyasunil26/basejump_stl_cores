@@ -26,11 +26,33 @@ targets:
     toplevel: bsg_binary_plus_one_to_gray
     parameters: 
       - width_p=2
+    
+    verilator_tb:
+    default_tool: verilator
+    filesets: [rtl, tb]
+    tools:
+      verilator:
+        verilator_options: [-Wno-lint -Wno-UNOPTFLAT]
+    toplevel: test_bsg
+    parameters: 
+      - width_p=3
 
 parameters:
   width_p:
     datatype : int
     default  : -1
+    paramtype: vlogparam
+  cycle_time_p: 
+    datatype : int
+    default  : 20
+    paramtype: vlogparam
+  reset_cycles_lo_p: 
+    datatype : int
+    default  : 5
+    paramtype: vlogparam
+  reset_cycles_hi_p: 
+    datatype : int
+    default  : 5
     paramtype: vlogparam
 
 provider :

@@ -41,7 +41,7 @@ targets:
     filesets: [rtl, tb]
     tools:
       verilator:
-        verilator_options: [-Wno-LINT]
+        verilator_options: [-Wno-lint]
     toplevel: test_bsg
     parameters: 
       - width_p=3
@@ -50,6 +50,10 @@ parameters:
   width_p:
     datatype : int
     default  : -1
+    paramtype: vlogparam
+  cycle_time_p: 
+    datatype : int
+    default  : 20
     paramtype: vlogparam
   reset_cycles_lo_p: 
     datatype : int
