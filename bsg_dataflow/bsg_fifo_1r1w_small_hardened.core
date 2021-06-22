@@ -1,0 +1,50 @@
+CAPI=2:
+
+name: ::bsg_fifo_1r1w_small_hardened:0-r1
+description: bsg_fifo with 1 read and 1 write, used for smaller fifos
+
+filesets:
+  rtl:
+    files:
+      - bsg_misc/bsg_defines.v: {is_include_file : true}
+      - bsg_dataflow/bsg_fifo_1r1w_small_hardened.v
+    file_type: systemVerilogSource
+    depend:
+      - bsg_fifo_tracker
+      - bsg_mem_1r1w_sync
+      - bsg_dff_en
+
+targets:
+  default:
+    filesets: [rtl]
+  
+  lint:
+    default_tool: verilator
+    filesets: [rtl]
+    tools:
+      verilator: 
+        mode: lint-only
+        verilator_options: [-Wno-WIDTH]
+    toplevel: bsg_fifo_1r1w_small_hardened
+    parameters: 
+      - width_p=2
+      - els_p=2
+
+parameters:
+  width_p:
+    datatype : int
+    default  : -1
+    paramtype: vlogparam
+  els_p:
+    datatype : int
+    default  : -1
+    paramtype: vlogparam
+  ready_THEN_valid_p:
+    datatype : int
+    default  : 0
+    paramtype: vlogparam
+
+provider :
+  name : github
+  user : bespoke-silicon-group
+  repo : basejump_stl
