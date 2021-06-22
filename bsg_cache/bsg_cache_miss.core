@@ -1,27 +1,22 @@
 CAPI=2:
 
-name: ::bsg_cache:0-r1
-description: cache
+name: ::bsg_cache_miss:0-r1
+description: bsg_cache_miss
 
 filesets:
   rtl:
     files:
       - bsg_misc/bsg_defines.v: {is_include_file : true}
-      - bsg_cache/bsg_cache.v
+      - bsg_cache/bsg_cache_pkg.v
+      - bsg_cache/bsg_cache_miss.v
     file_type: systemVerilogSource
     depend:
-      - bsg_cache_decode
-      - bsg_mem_1rw_sync_mask_write_bit
-      - bsg_mem_1rw_sync_mask_write_byte
       - bsg_priority_encode
-      - bsg_cache_miss
-      - bsg_cache_dma
-      - bsg_cache_sbuf
-      - bsg_decode
-      - bsg_expand_bitmask
-      - bsg_mux
-      - bsg_mux_segmented
       - bsg_lru_pseudo_tree_decode
+      - bsg_lru_pseudo_tree_backup
+      - bsg_mux_bitwise
+      - bsg_lru_pseudo_tree_encode
+      - bsg_decode
 
 targets:
   default:
@@ -33,8 +28,14 @@ targets:
     tools:
       verilator: 
         mode: lint-only
-        verilator_options: [-Wno-WIDTH -Wno-PINMISSING -Wno-MODDUP]
-    toplevel: bsg_cache
+        verilator_options: [-Wno-WIDTH -Wno-PINMISSING]
+    toplevel: bsg_cache_miss
+    parameters: 
+      - addr_width_p=2
+      - data_width_p=2
+      - block_size_in_words_p=2
+      - sets_p=2
+      - ways_p=2
 
 parameters:
   addr_width_p:
@@ -66,3 +67,4 @@ provider :
   name : github
   user : bespoke-silicon-group
   repo : basejump_stl
+

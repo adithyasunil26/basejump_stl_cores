@@ -24,12 +24,12 @@ targets:
     tools:
       verilator: 
         mode: lint-only
-        # verilator_options: [-Wno-WIDTH -Wno-PINMISSING]
+        verilator_options: [-Wno-MODDUP --debug]
     toplevel: bsg_cache_sbuf
     parameters:
-      - addr_width_p = 2
-      - data_width_p = 2
-      - ways_p = 2
+      - addr_width_p=2
+      - data_width_p=2
+      - ways_p=2
 
 parameters:
   addr_width_p:
