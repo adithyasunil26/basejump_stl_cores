@@ -7,7 +7,7 @@ filesets:
   rtl:
     files:
       - bsg_misc/bsg_defines.v: {is_include_file : true}
-      - bsg_cache/bsg_cache_pkg.v: {is_include_file : true}
+      - bsg_cache/bsg_cache_pkg.v
       - bsg_cache/bsg_cache_decode.v
     file_type: systemVerilogSource
 
@@ -21,6 +21,7 @@ targets:
     tools:
       verilator: 
         mode: lint-only
+        verilator_options: [-Wno-UNOPT]
     toplevel: bsg_cache_decode
 
 provider :
