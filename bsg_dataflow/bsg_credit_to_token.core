@@ -1,0 +1,44 @@
+CAPI=2:
+
+name: ::bsg_credit_to_token:0-r1
+description: This module is a counter for credits, that every decimation_p credits it would assert token_o signal once. 
+
+filesets:
+  rtl:
+    files:
+      - bsg_misc/bsg_defines.v: {is_include_file : true}
+      - bsg_dataflow/bsg_credit_to_token.v
+    file_type: systemVerilogSource
+    depend:
+      - bsg_counter_up_down_variable
+
+targets:
+  default:
+    filesets: [rtl]
+  
+  lint:
+    default_tool: verilator
+    filesets: [rtl]
+    tools:
+      verilator: 
+        mode: lint-only
+        verilator_options: [-Wno-WIDTH]
+    toplevel: bsg_credit_to_token
+    parameters: 
+      - decimation_p=2
+      - max_val_p=2
+
+parameters:
+  decimation_p:
+    datatype : int
+    default  : -1
+    paramtype: vlogparam
+  max_val_p:
+    datatype : int
+    default  : 0
+    paramtype: vlogparam
+
+provider :
+  name : github
+  user : bespoke-silicon-group
+  repo : basejump_stl
