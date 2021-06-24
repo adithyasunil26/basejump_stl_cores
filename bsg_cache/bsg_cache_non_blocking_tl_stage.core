@@ -1,24 +1,19 @@
 CAPI=2:
 
-name: ::bsg_cache_non_blocking:0-r1
-description: Non-blocking cache
+name: ::bsg_cache_non_blocking_tl_stage:0-r1
+description: tag-lookup stage
 
 filesets:
   rtl:
     files:
       - bsg_misc/bsg_defines.v: {is_include_file : true}
       - bsg_cache/bsg_cache_non_blocking_pkg.v
-      - bsg_cache/bsg_cache_non_blocking.v
+      - bsg_cache/bsg_cache_non_blocking_tl_stage.v
     file_type: systemVerilogSource
     depend:
-      - bsg_cache_non_blocking_tl_stage
-      - bsg_cache_non_blocking_miss_fifo
-      - bsg_cache_non_blocking_data_mem
-      - bsg_dff_reset
-      - bsg_dff_en_bypass
-      - bsg_cache_non_blocking_stat_mem
-      - bsg_cache_non_blocking_mhu
-      - bsg_cache_non_blocking_dma
+      - bsg_counter_clear_up
+      - bsg_cache_non_blocking_tag_mem
+      - bsg_priority_encode
 
 targets:
   default:
@@ -30,8 +25,8 @@ targets:
     tools:
       verilator: 
         mode: lint-only
-        verilator_options: [-Wno-PINMISSING -Wno-MODDUP]
-    toplevel: bsg_cache_non_blocking
+        verilator_options: [-Wno-MODDUP]
+    toplevel: bsg_cache_non_blocking_tl_stage
     parameters:
       - id_width_p=2
       - addr_width_p=2
@@ -39,7 +34,6 @@ targets:
       - ways_p=2
       - sets_p=2
       - block_size_in_words_p=1
-      - miss_fifo_els_p=1
 
 parameters:
   id_width_p:
@@ -63,10 +57,6 @@ parameters:
     default  : -1
     paramtype: vlogparam
   ways_p:
-    datatype : int
-    default  : -1
-    paramtype: vlogparam
-  miss_fifo_els_p:
     datatype : int
     default  : -1
     paramtype: vlogparam

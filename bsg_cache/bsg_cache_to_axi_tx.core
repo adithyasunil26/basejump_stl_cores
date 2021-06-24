@@ -1,24 +1,19 @@
 CAPI=2:
 
-name: ::bsg_cache_non_blocking:0-r1
-description: Non-blocking cache
+name: ::bsg_cache_to_axi_tx:0-r1
+description: bsg_cache_to_axi_tx
 
 filesets:
   rtl:
     files:
       - bsg_misc/bsg_defines.v: {is_include_file : true}
-      - bsg_cache/bsg_cache_non_blocking_pkg.v
-      - bsg_cache/bsg_cache_non_blocking.v
+      - bsg_cache/bsg_cache_to_axi_tx.v
     file_type: systemVerilogSource
     depend:
-      - bsg_cache_non_blocking_tl_stage
-      - bsg_cache_non_blocking_miss_fifo
-      - bsg_cache_non_blocking_data_mem
-      - bsg_dff_reset
-      - bsg_dff_en_bypass
-      - bsg_cache_non_blocking_stat_mem
-      - bsg_cache_non_blocking_mhu
-      - bsg_cache_non_blocking_dma
+      - bsg_fifo_1r1w_small
+      - bsg_serial_in_parallel_out
+      - bsg_counter_clear_up
+      - bsg_decode_with_v
 
 targets:
   default:
@@ -30,26 +25,18 @@ targets:
     tools:
       verilator: 
         mode: lint-only
-        verilator_options: [-Wno-PINMISSING -Wno-MODDUP]
-    toplevel: bsg_cache_non_blocking
+        verilator_options: [-Wno-WIDTH -Wno-LITENDIAN]
+    toplevel: bsg_cache_to_axi_tx
     parameters:
-      - id_width_p=2
-      - addr_width_p=2
       - data_width_p=2
-      - ways_p=2
-      - sets_p=2
-      - block_size_in_words_p=1
-      - miss_fifo_els_p=1
+      - num_cache_p=2
+      - block_size_in_words_p=2
+      - axi_id_width_p=2
+      - axi_addr_width_p=2
+      - axi_data_width_p=2
+      - axi_burst_len_p=2
 
 parameters:
-  id_width_p:
-    datatype : int
-    default  : -1
-    paramtype: vlogparam
-  addr_width_p:
-    datatype : int
-    default  : -1
-    paramtype: vlogparam
   data_width_p:
     datatype : int
     default  : -1
@@ -58,15 +45,23 @@ parameters:
     datatype : int
     default  : -1
     paramtype: vlogparam
-  sets_p:
+  num_cache_p:
     datatype : int
     default  : -1
     paramtype: vlogparam
-  ways_p:
+  axi_id_width_p:
     datatype : int
     default  : -1
     paramtype: vlogparam
-  miss_fifo_els_p:
+  axi_addr_width_p:
+    datatype : int
+    default  : -1
+    paramtype: vlogparam
+  axi_data_width_p:
+    datatype : int
+    default  : -1
+    paramtype: vlogparam
+  axi_burst_len_p:
     datatype : int
     default  : -1
     paramtype: vlogparam
