@@ -1,0 +1,76 @@
+CAPI=2:
+
+name: ::bsg_flow_convert:0-r1
+description: this module converts between the various link-level flow-control protocols.
+
+filesets:
+  rtl:
+    files:
+      - bsg_misc/bsg_defines.v: {is_include_file : true}
+      - bsg_dataflow/bsg_flow_convert.v
+    file_type: systemVerilogSource
+
+targets:
+  default:
+    filesets: [rtl]
+  
+  lint:
+    default_tool: verilator
+    filesets: [rtl]
+    tools:
+      verilator: 
+        mode: lint-only
+    toplevel: bsg_flow_convert
+    parameters: 
+      - width_p=2
+
+parameters:
+  send_v_and_ready_p:
+    datatype : int
+    default  : 0
+    paramtype: vlogparam
+  send_v_then_yumi_p:
+    datatype : int
+    default  : 0
+    paramtype: vlogparam
+  send_ready_then_v_p:
+    datatype : int
+    default  : 0
+    paramtype: vlogparam
+  send_retry_then_v_p:
+    datatype : int
+    default  : 0
+    paramtype: vlogparam
+  send_v_and_retry_p:
+    datatype : int
+    default  : 0
+    paramtype: vlogparam
+  recv_v_and_ready_p:
+    datatype : int
+    default  : 0
+    paramtype: vlogparam
+  recv_v_then_yumi_p:
+    datatype : int
+    default  : 0
+    paramtype: vlogparam
+  recv_ready_then_v_p:
+    datatype : int
+    default  : 0
+    paramtype: vlogparam
+  recv_v_and_retry_p:
+    datatype : int
+    default  : 0
+    paramtype: vlogparam
+  recv_v_then_retry_p:
+    datatype : int
+    default  : 0
+    paramtype: vlogparam
+  width_p:
+    datatype : int
+    default  : 1
+    paramtype: vlogparam
+
+provider :
+  name : github
+  user : bespoke-silicon-group
+  repo : basejump_stl

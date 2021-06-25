@@ -1,0 +1,41 @@
+CAPI=2:
+
+name: ::bsg_permute_box:0-r1
+description: permute box
+
+filesets:
+  rtl:
+    files:
+      - bsg_misc/bsg_defines.v: {is_include_file : true}
+      - bsg_dataflow/bsg_permute_box.v
+    file_type: systemVerilogSource
+
+targets:
+  default:
+    filesets: [rtl]
+  
+  lint:
+    default_tool: verilator
+    filesets: [rtl]
+    tools:
+      verilator: 
+        mode: lint-only
+    toplevel: bsg_permute_box
+    parameters: 
+      - width_p=2
+      - items_p=2
+
+parameters:
+  width_p:
+    datatype : int
+    default  : -1
+    paramtype: vlogparam
+  items_p:
+    datatype : int
+    default  : -1
+    paramtype: vlogparam
+
+provider :
+  name : github
+  user : bespoke-silicon-group
+  repo : basejump_stl
