@@ -1,0 +1,46 @@
+CAPI=2:
+
+name: ::bsg_parallel_in_serial_out_dynamic:0-r1
+description: bsg_parallel_in_serial_out_dynamic
+
+filesets:
+  rtl:
+    files:
+      - bsg_misc/bsg_defines.v: {is_include_file : true}
+      - bsg_dataflow/bsg_parallel_in_serial_out_dynamic.v
+    file_type: systemVerilogSource
+    depend:
+      - bsg_two_fifo
+      - bsg_counter_clear_up
+      - bsg_mux
+
+targets:
+  default:
+    filesets: [rtl]
+  
+  lint:
+    default_tool: verilator
+    filesets: [rtl]
+    tools:
+      verilator: 
+        mode: lint-only
+        verilator_options: [-Wno-WIDTH -Wno-PINMISSING]
+    toplevel: bsg_parallel_in_serial_out_dynamic
+    parameters: 
+      - width_p=2
+      - max_els_p=2
+
+parameters:
+  width_p:
+    datatype : int
+    default  : -1
+    paramtype: vlogparam
+  max_els_p:
+    datatype : int
+    default  : 0
+    paramtype: vlogparam
+
+provider :
+  name : github
+  user : bespoke-silicon-group
+  repo : basejump_stl
