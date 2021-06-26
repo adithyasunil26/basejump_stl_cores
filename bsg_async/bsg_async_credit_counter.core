@@ -1,0 +1,65 @@
+CAPI=2:
+
+name: ::bsg_async_credit_counter:0-r1
+description: async credit counter
+
+filesets:
+  rtl:
+    files:
+      - bsg_misc/bsg_defines.v: {is_include_file : true}
+      - bsg_async/bsg_async_credit_counter.v
+    file_type: systemVerilogSource
+    depend:
+      - bsg_async_ptr_gray
+      - bsg_gray_to_binary
+
+targets:
+  default:
+    filesets: [rtl]
+  
+  lint:
+    default_tool: verilator
+    filesets: [rtl]
+    tools:
+      verilator: 
+        mode: lint-only
+        verilator_options: [-Wno-WIDTH]
+    toplevel: bsg_async_credit_counter
+    parameters: 
+      - max_tokens_p=2
+      - lg_credit_to_token_decimation_p=2
+
+parameters:
+  max_tokens_p:
+    datatype : int
+    default  : -1
+    paramtype: vlogparam
+  lg_credit_to_token_decimation_p:
+    datatype : int
+    default  : -1
+    paramtype: vlogparam
+  count_negedge_p:
+    datatype : int
+    default  : 0
+    paramtype: vlogparam
+  extra_margin_p:
+    datatype : int
+    default  : 0
+    paramtype: vlogparam
+  check_excess_credits_p:
+    datatype : int
+    default  : 1
+    paramtype: vlogparam
+  start_full_p:
+    datatype : int
+    default  : 1
+    paramtype: vlogparam
+  use_async_w_reset_p:
+    datatype : int
+    default  : 0
+    paramtype: vlogparam
+
+provider :
+  name : github
+  user : bespoke-silicon-group
+  repo : basejump_stl
