@@ -1,0 +1,29 @@
+CAPI=2:
+
+name: ::bsg_sync_sync:0-r1
+description: This is just two synchronization flops.
+
+filesets:
+  rtl:
+    files:
+      - bsg_misc/bsg_defines.v: {is_include_file : true}
+      - bsg_async/bsg_sync_sync.v
+    file_type: systemVerilogSource
+
+targets:
+  default:
+    filesets: [rtl]
+  
+  lint:
+    default_tool: verilator
+    filesets: [rtl]
+    tools:
+      verilator: 
+        mode: lint-only
+        verilator_options: [-Wno-WIDTH]
+    toplevel: bsg_sync_sync
+
+provider :
+  name : github
+  user : bespoke-silicon-group
+  repo : basejump_stl
