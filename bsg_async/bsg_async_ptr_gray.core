@@ -1,0 +1,46 @@
+CAPI=2:
+
+name: ::bsg_async_ptr_gray:0-r1
+description: async pointer
+
+filesets:
+  rtl:
+    files:
+      - bsg_misc/bsg_defines.v: {is_include_file : true}
+      - bsg_async/bsg_async_ptr_gray.v
+    file_type: systemVerilogSource
+    depend:
+      - bsg_launch_sync_sync
+
+targets:
+  default:
+    filesets: [rtl]
+  
+  lint:
+    default_tool: verilator
+    filesets: [rtl]
+    tools:
+      verilator: 
+        mode: lint-only
+    toplevel: bsg_async_ptr_gray
+    parameters: 
+      - lg_size_p=2
+
+parameters:
+  lg_size_p:
+    datatype : int
+    default  : -1
+    paramtype: vlogparam
+  use_negedge_for_launch_p:
+    datatype : int
+    default  : 0
+    paramtype: vlogparam
+  use_async_reset_p:
+    datatype : int
+    default  : 0
+    paramtype: vlogparam
+
+provider :
+  name : github
+  user : bespoke-silicon-group
+  repo : basejump_stl
