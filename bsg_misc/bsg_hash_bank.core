@@ -18,9 +18,9 @@ filesets:
     files:
       - testing/bsg_misc/bsg_hash_bank/tb.v
       - testing/bsg_misc/bsg_hash_bank/verilator_top.cc: {file_type: cppSource}
-      - bsg_misc/bsg_hash_bank_reverse.v
-      - bsg_misc/bsg_hash_bank_reverse.v
     file_type: systemVerilogSource
+    depend:
+      - bsg_hash_bank_reverse
 
 targets:
   default:
@@ -42,11 +42,8 @@ targets:
     filesets: [rtl, tb]
     tools:
       verilator:
-        verilator_options: [-Wno-lint -Wno-UNOPTFLAT -Wno-MODDUP]
+        verilator_options: [-Wno-WIDTH -Wno-UNOPTFLAT -Wno-MODDUP]
     toplevel: tb
-    # parameters: 
-    #   - width_p=3
-    #   - banks_p=1
 
 parameters:
   width_p:
