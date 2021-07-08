@@ -25,13 +25,14 @@ targets:
     tools:
       verilator: 
         mode: lint-only
-        # verilator_options: [-Wno-WIDTH -Wno-LITENDIAN]
+        verilator_options: [-Wno-WIDTH]
     toplevel: bsg_cache_to_test_dram_tx
     parameters: 
       - num_cache_p=2
       - data_width_p=2
       - block_size_in_words_p=2
-      - dram_ctrl_burst_len_p=2
+      - dma_data_width_p=2
+      - dram_data_width_p=2
 
 parameters:
   num_cache_p:
