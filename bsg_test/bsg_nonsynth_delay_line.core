@@ -1,13 +1,13 @@
 CAPI=2:
 
-name: ::bsg_launch_sync_sync:0-r1
-description: This is a launch/synchronization complex.
+name: ::bsg_nonsynth_delay_line:0-r1
+description: delay line
 
 filesets:
   rtl:
     files:
       - bsg_misc/bsg_defines.v: {is_include_file : true}
-      - bsg_async/bsg_launch_sync_sync.v
+      - bsg_test/bsg_nonsynth_delay_line.v
     file_type: systemVerilogSource
 
 targets:
@@ -20,23 +20,20 @@ targets:
     tools:
       verilator: 
         mode: lint-only
-        verilator_options: [-Wno-WIDTH]
-    toplevel: bsg_launch_sync_sync
-    parameters: 
-      - width_p=8
+        verilator_options: [-Wno-COMBDLY]
+    toplevel: bsg_nonsynth_delay_line
+    parameters:
+      - width_p=2
+      - delay_p=2
 
 parameters:
   width_p:
     datatype : int
-    default  : 8
+    default  : -1
     paramtype: vlogparam
-  use_negedge_for_launch_p:
+  delay_p:
     datatype : int
-    default  : 0
-    paramtype: vlogparam
-  use_async_reset_p:
-    datatype : int
-    default  : 0
+    default  : -1
     paramtype: vlogparam
 
 provider :

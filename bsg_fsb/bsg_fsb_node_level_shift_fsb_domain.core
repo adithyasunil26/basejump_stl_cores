@@ -1,34 +1,36 @@
 CAPI=2:
 
-name: ::bsg_sync_sync:0-r1
-description: This is just two synchronization flops.
+name: ::bsg_fsb_node_level_shift_fsb_domain:0-r1
+description: This module is design to level shift all signals that connect the FSB to a node.
 
 filesets:
   rtl:
     files:
       - bsg_misc/bsg_defines.v: {is_include_file : true}
-      - bsg_async/bsg_sync_sync.v
+      - bsg_fsb/bsg_fsb_node_level_shift_fsb_domain.v
     file_type: systemVerilogSource
+    depend:
+      - bsg_level_shift_up_down_source
+      - bsg_level_shift_up_down_sink
 
 targets:
   default:
     filesets: [rtl]
-  
+
   lint:
     default_tool: verilator
     filesets: [rtl]
     tools:
       verilator: 
         mode: lint-only
-        verilator_options: [-Wno-WIDTH]
-    toplevel: bsg_sync_sync
-    parameters: 
-      - width_p=8
+    toplevel: bsg_fsb_node_level_shift_fsb_domain
+    parameters:
+      - ring_width_p=2
 
 parameters:
-  width_p:
+  ring_width_p:
     datatype : int
-    default  : 8
+    default  : -1
     paramtype: vlogparam
 
 provider :

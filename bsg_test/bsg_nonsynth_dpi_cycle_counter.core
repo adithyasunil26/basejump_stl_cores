@@ -1,14 +1,17 @@
 CAPI=2:
 
-name: ::bsg_launch_sync_sync:0-r1
-description: This is a launch/synchronization complex.
+name: ::bsg_nonsynth_dpi_cycle_counter:0-r1
+description:  This modules defines a DPI interface for a counter that can be read periodically using DPI
 
 filesets:
   rtl:
     files:
       - bsg_misc/bsg_defines.v: {is_include_file : true}
-      - bsg_async/bsg_launch_sync_sync.v
+      - bsg_test/bsg_nonsynth_dpi_clock_gen.hpp: { file_type: cppSource ,is_include_file : true} 
+      - bsg_test/bsg_nonsynth_dpi_cycle_counter.v
     file_type: systemVerilogSource
+    depend:
+      - bsg_cycle_counter
 
 targets:
   default:
@@ -21,20 +24,16 @@ targets:
       verilator: 
         mode: lint-only
         verilator_options: [-Wno-WIDTH]
-    toplevel: bsg_launch_sync_sync
+    toplevel: bsg_nonsynth_dpi_cycle_counter
     parameters: 
-      - width_p=8
+      - width_p=3
 
 parameters:
   width_p:
     datatype : int
-    default  : 8
+    default  : -1
     paramtype: vlogparam
-  use_negedge_for_launch_p:
-    datatype : int
-    default  : 0
-    paramtype: vlogparam
-  use_async_reset_p:
+  debug_p:
     datatype : int
     default  : 0
     paramtype: vlogparam

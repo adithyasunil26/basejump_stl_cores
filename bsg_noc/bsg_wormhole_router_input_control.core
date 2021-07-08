@@ -1,35 +1,26 @@
 CAPI=2:
 
-name: ::bsg_sync_sync:0-r1
-description: This is just two synchronization flops.
+name: ::bsg_wormhole_router_input_control:0-r1
+description: wormhole_router_input_control
 
 filesets:
   rtl:
     files:
       - bsg_misc/bsg_defines.v: {is_include_file : true}
-      - bsg_async/bsg_sync_sync.v
+      - bsg_noc/bsg_wormhole_router_input_control.v
     file_type: systemVerilogSource
 
 targets:
   default:
     filesets: [rtl]
-  
+
   lint:
     default_tool: verilator
     filesets: [rtl]
     tools:
       verilator: 
         mode: lint-only
-        verilator_options: [-Wno-WIDTH]
-    toplevel: bsg_sync_sync
-    parameters: 
-      - width_p=8
-
-parameters:
-  width_p:
-    datatype : int
-    default  : 8
-    paramtype: vlogparam
+    toplevel: bsg_wormhole_router_input_control__abstract
 
 provider :
   name : github

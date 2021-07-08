@@ -1,13 +1,14 @@
 CAPI=2:
 
-name: ::bsg_launch_sync_sync:0-r1
-description: This is a launch/synchronization complex.
+name: ::bsg_nonsynth_dpi_gpio:0-r1
+description: This module is useful for setting and reading "pins" from C/C++
 
 filesets:
   rtl:
     files:
       - bsg_misc/bsg_defines.v: {is_include_file : true}
-      - bsg_async/bsg_launch_sync_sync.v
+      - bsg_test/bsg_nonsynth_dpi_gpio.hpp: { file_type: cppSource ,is_include_file : true} 
+      - bsg_test/bsg_nonsynth_dpi_gpio.v
     file_type: systemVerilogSource
 
 targets:
@@ -21,20 +22,25 @@ targets:
       verilator: 
         mode: lint-only
         verilator_options: [-Wno-WIDTH]
-    toplevel: bsg_launch_sync_sync
-    parameters: 
-      - width_p=8
+    toplevel: bsg_nonsynth_dpi_gpio
+    parameters:
+      - width_p=4
+      - use_input_p=1
 
 parameters:
   width_p:
     datatype : int
-    default  : 8
+    default  : -1
     paramtype: vlogparam
-  use_negedge_for_launch_p:
+  use_input_p:
     datatype : int
     default  : 0
     paramtype: vlogparam
-  use_async_reset_p:
+  use_output_p:
+    datatype : int
+    default  : 0
+    paramtype: vlogparam
+  debug_p:
     datatype : int
     default  : 0
     paramtype: vlogparam

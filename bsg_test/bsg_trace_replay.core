@@ -1,13 +1,13 @@
 CAPI=2:
 
-name: ::bsg_launch_sync_sync:0-r1
-description: This is a launch/synchronization complex.
+name: ::bsg_trace_replay:0-r1
+description: bsg_trace_replay
 
 filesets:
   rtl:
     files:
       - bsg_misc/bsg_defines.v: {is_include_file : true}
-      - bsg_async/bsg_launch_sync_sync.v
+      - bsg_test/bsg_trace_replay.v
     file_type: systemVerilogSource
 
 targets:
@@ -20,23 +20,28 @@ targets:
     tools:
       verilator: 
         mode: lint-only
-        verilator_options: [-Wno-WIDTH]
-    toplevel: bsg_launch_sync_sync
-    parameters: 
-      - width_p=8
+    toplevel: bsg_trace_replay
 
 parameters:
-  width_p:
+  payload_width_p:
     datatype : int
-    default  : 8
+    default  : 3
     paramtype: vlogparam
-  use_negedge_for_launch_p:
+  rom_addr_width_p:
     datatype : int
-    default  : 0
+    default  : 100
     paramtype: vlogparam
-  use_async_reset_p:
+  debug_p:
     datatype : int
-    default  : 0
+    default  : 1
+    paramtype: vlogparam
+  finish_on_error_p:
+    datatype : int
+    default  : 1
+    paramtype: vlogparam
+  opcode_width_lp:
+    datatype : int
+    default  : 4
     paramtype: vlogparam
 
 provider :

@@ -1,43 +1,40 @@
 CAPI=2:
 
-name: ::bsg_launch_sync_sync:0-r1
-description: This is a launch/synchronization complex.
+name: ::bsg_wormhole_router_decoder_dor:0-r1
+description: N-dimensional wormhole dimension ordered decoder
 
 filesets:
   rtl:
     files:
       - bsg_misc/bsg_defines.v: {is_include_file : true}
-      - bsg_async/bsg_launch_sync_sync.v
+      - bsg_noc/bsg_wormhole_router_decoder_dor.v
     file_type: systemVerilogSource
+    depend:
+      - bsg_noc_pkg
+      - bsg_serial_in_parallel_out_dynamic
 
 targets:
   default:
     filesets: [rtl]
-  
+
   lint:
     default_tool: verilator
     filesets: [rtl]
     tools:
       verilator: 
         mode: lint-only
-        verilator_options: [-Wno-WIDTH]
-    toplevel: bsg_launch_sync_sync
-    parameters: 
-      - width_p=8
+    toplevel: bsg_wormhole_router_decoder_dor
+    parameters:
+      - dims_p=2
 
 parameters:
-  width_p:
+  dims_p:
     datatype : int
-    default  : 8
+    default  : 2
     paramtype: vlogparam
-  use_negedge_for_launch_p:
-    datatype : int
-    default  : 0
-    paramtype: vlogparam
-  use_async_reset_p:
+  reverse_order_p:
     datatype : int
     default  : 0
-    paramtype: vlogparam
 
 provider :
   name : github
