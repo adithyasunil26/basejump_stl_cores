@@ -1,24 +1,26 @@
 CAPI=2:
 
 name: ::bsg_round_robin_arb:0-r1
-description: round_robin_arb
+description: Round Robin Arbitration Unit
 
 filesets:
   rtl:
     files:
       - bsg_misc/bsg_defines.v: {is_include_file : true}
-      - bsg_misc/bsg_round_robin_arb.v
     file_type: systemVerilogSource
     depend:
       - bsg_scan
+      - bsg_round_robin_arb_gen
 
 targets:
   default:
     filesets: [rtl]
+    generate: [gen]
   
   lint:
     default_tool: verilator
     filesets: [rtl]
+    generate: [gen]
     tools:
       verilator: 
         mode: lint-only
@@ -44,6 +46,12 @@ parameters:
     datatype : int
     default  : 0
     paramtype: vlogparam
+
+generate:
+  gen:
+    generator: bsg_round_robin_arb_gen
+    parameters:
+      channels: 16
 
 provider :
   name : github
