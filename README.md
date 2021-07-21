@@ -6,7 +6,7 @@ Visit [FuseSoC](https://github.com/olofk/fusesoc) for install isntructions for F
 
 ### Adding core library to FuseSoC
 ```bash
-fusesoc library add alu https://github.com/adithyasunil26/basejump_stl_cores
+fusesoc library add basejump https://github.com/adithyasunil26/basejump_stl_cores
 ```
 
 ### Running cores
