@@ -14,13 +14,12 @@ filesets:
 
   tb:
     files:
-      - testing/bsg_misc/bsg_dff/test_bsg.v
-      - testing/bsg_misc/bsg_dff/test_bsg.cpp : { file_type : cppSource }
+      - testing/bsg_misc/bsg_thermometer_count/test_bsg.v
+      - testing/bsg_misc/test_bsg.cpp : { file_type : cppSource }
     file_type: systemVerilogSource
     depend:
       - bsg_nonsynth_dpi_clock_gen
       - bsg_nonsynth_reset_gen
-
 
 targets:
   default:
