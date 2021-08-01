@@ -14,6 +14,15 @@ filesets:
       - bsg_dff
       - bsg_8b10b_decode_comb
 
+  tb:
+    files:
+      - testing/bsg_dataflow/bsg_8b10b_shift_decoder/test_bsg.v
+      - testing/bsg_misc/test_bsg.cpp : { file_type : cppSource }
+    file_type: systemVerilogSource
+    depend:
+      - bsg_nonsynth_dpi_clock_gen
+      - bsg_nonsynth_reset_gen
+
 targets:
   default:
     filesets: [rtl]
@@ -25,6 +34,14 @@ targets:
       verilator: 
         mode: lint-only
     toplevel: bsg_8b10b_shift_decoder
+
+  verilator_tb:
+    default_tool: verilator
+    filesets: [rtl, tb]
+    tools:
+      verilator:
+        verilator_options: [-Wno-lint]
+    toplevel: test_bsg
 
 provider:
   name: github

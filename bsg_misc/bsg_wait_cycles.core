@@ -12,8 +12,8 @@ filesets:
   
   tb:
     files:
-      - testing/bsg_misc/bsg_dff/test_bsg.v
-      - testing/bsg_misc/bsg_dff/test_bsg.cpp : { file_type : cppSource }
+      - testing/bsg_misc/bsg_wait_cycles/test_bsg.v
+      - testing/bsg_misc/test_bsg.cpp : { file_type : cppSource }
     file_type: systemVerilogSource
     depend:
       - bsg_nonsynth_dpi_clock_gen
