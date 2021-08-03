@@ -43,11 +43,11 @@ The cores currently have 2 targets which are verilator lint and testbench. They 
 
 For linting
 
-    fusesoc run --target lint <name_of_core>
+    fusesoc run --target lint bsg_dff
 
 For verilator testbench
 
-    fusesoc run --target verilator_tb <name_of_core>
+    fusesoc run --target verilator_tb bsg_dff
 
 ## Contributing
 
