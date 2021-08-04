@@ -7,6 +7,7 @@ filesets:
   rtl:
     files:
       - bsg_misc/bsg_defines.v: {is_include_file : true}
+      - bsg_test/bsg_nonsynth_clock_gen.v
       - bsg_test/bsg_nonsynth_dpi_clock_gen.v
       - bsg_test/bsg_nonsynth_dpi_clock_gen.cpp: { file_type: cppSource } 
       - bsg_test/bsg_nonsynth_dpi_clock_gen.hpp: { file_type: cppSource ,is_include_file : true} 
