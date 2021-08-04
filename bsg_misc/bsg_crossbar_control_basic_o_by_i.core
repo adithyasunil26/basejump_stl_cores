@@ -24,7 +24,7 @@ filesets:
     depend:
       - bsg_nonsynth_dpi_clock_gen
       - bsg_nonsynth_reset_gen
-cd 
+
 targets:
   default:
     filesets: [rtl]
