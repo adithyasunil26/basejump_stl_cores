@@ -32,6 +32,16 @@ targets:
       - tag_width_p=2
       - data_width_p=2
 
+  synth:
+    default_tool: yosys
+    filesets: [rtl]
+    tools:
+      yosys:
+        arch: ice40
+        output_format: json
+        yosys_synth_options: [-sv]
+    toplevel: bsg_cache_non_blocking_tag_mem
+
 parameters:
   sets_p:
     datatype : int

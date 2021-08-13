@@ -41,6 +41,16 @@ targets:
       - block_size_in_words_p=1
       - miss_fifo_els_p=1
 
+  synth:
+    default_tool: yosys
+    filesets: [rtl]
+    tools:
+      yosys:
+        arch: ice40
+        output_format: json
+        yosys_synth_options: [-sv]
+    toplevel: bsg_cache_non_blocking
+
 parameters:
   id_width_p:
     datatype : int
