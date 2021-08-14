@@ -28,6 +28,16 @@ targets:
       - width_p=3
       - els_p=2
 
+  synth:
+    default_tool: yosys
+    filesets: [rtl]
+    tools:
+      yosys:
+        arch: ice40
+        output_format: json
+        yosys_synth_options: [-sv]
+    toplevel: bsg_mem_2r1w
+
 parameters:
   width_p:
     datatype : int
