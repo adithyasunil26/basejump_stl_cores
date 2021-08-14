@@ -39,6 +39,16 @@ targets:
         verilator_options: [-Wno-lint]
     toplevel: test_bsg
 
+  synth:
+    default_tool: yosys
+    filesets: [rtl]
+    tools:
+      yosys:
+        arch: ice40
+        output_format: json
+        yosys_synth_options: [-sv]
+    toplevel: bsg_8b10b_encode_comb
+
 provider:
   name: github
   user: bespoke-silicon-group

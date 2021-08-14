@@ -48,6 +48,16 @@ targets:
         verilator_options: [-Wno-lint]
     toplevel: test_bsg
 
+  synth:
+    default_tool: yosys
+    filesets: [rtl]
+    tools:
+      yosys:
+        arch: ice40
+        output_format: json
+        yosys_synth_options: [-sv]
+    toplevel: bsg_serial_in_parallel_out_full
+
 parameters:
   width_p:
     datatype : int
