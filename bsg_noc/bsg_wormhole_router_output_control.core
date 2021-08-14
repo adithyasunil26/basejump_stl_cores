@@ -28,6 +28,16 @@ targets:
     parameters:
       - input_dirs_p=2
 
+  synth:
+    default_tool: yosys
+    filesets: [rtl]
+    tools:
+      yosys:
+        arch: ice40
+        output_format: json
+        yosys_synth_options: [-sv]
+    toplevel: bsg_wormhole_router_output_control
+
 parameters:
   input_dirs_p:
     datatype : int

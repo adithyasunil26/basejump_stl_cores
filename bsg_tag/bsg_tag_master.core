@@ -30,6 +30,16 @@ targets:
       - els_p=2
       - lg_width_p=2
 
+  synth:
+    default_tool: yosys
+    filesets: [rtl]
+    tools:
+      yosys:
+        arch: ice40
+        output_format: json
+        yosys_synth_options: [-sv]
+    toplevel: bsg_tag_master
+
 parameters:
   els_p:
     datatype : int

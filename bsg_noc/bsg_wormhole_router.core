@@ -36,6 +36,16 @@ targets:
         mode: lint-only
     toplevel: bsg_wormhole_router__abstract
 
+  synth:
+    default_tool: yosys
+    filesets: [rtl]
+    tools:
+      yosys:
+        arch: ice40
+        output_format: json
+        yosys_synth_options: [-sv]
+    toplevel: bsg_wormhole_router
+
 parameters:
   dims_p:
     datatype : int

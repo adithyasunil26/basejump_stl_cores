@@ -32,6 +32,16 @@ targets:
       - cord_width_p=2
       - flit_width_p=2
 
+  synth:
+    default_tool: yosys
+    filesets: [rtl]
+    tools:
+      yosys:
+        arch: ice40
+        output_format: json
+        yosys_synth_options: [-sv]
+    toplevel: bsg_wormhole_router_adapter_in
+
 parameters:
   max_payload_width_p:
     datatype : int

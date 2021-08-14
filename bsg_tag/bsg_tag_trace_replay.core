@@ -33,6 +33,15 @@ targets:
       - num_clients_p=5
       - max_payload_width_p=5
 
+  synth:
+    default_tool: yosys
+    filesets: [rtl]
+    tools:
+      yosys:
+        arch: ice40
+        output_format: json
+        yosys_synth_options: [-sv]
+    toplevel: bsg_tag_trace_replay
 
 parameters:
   rom_addr_width_p:

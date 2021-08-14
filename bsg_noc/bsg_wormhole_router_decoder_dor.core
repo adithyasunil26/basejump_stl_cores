@@ -27,6 +27,16 @@ targets:
     parameters:
       - dims_p=2
 
+  synth:
+    default_tool: yosys
+    filesets: [rtl]
+    tools:
+      yosys:
+        arch: ice40
+        output_format: json
+        yosys_synth_options: [-sv]
+    toplevel: bsg_wormhole_router_decoder_dor
+
 parameters:
   dims_p:
     datatype : int

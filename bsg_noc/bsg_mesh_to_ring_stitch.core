@@ -27,6 +27,16 @@ targets:
       - width_back_p=2
       - width_fwd_p=2
 
+  synth:
+    default_tool: yosys
+    filesets: [rtl]
+    tools:
+      yosys:
+        arch: ice40
+        output_format: json
+        yosys_synth_options: [-sv]
+    toplevel: bsg_mesh_to_ring_stitch
+
 parameters:
   y_max_p:
     datatype : int
