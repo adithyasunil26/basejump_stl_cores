@@ -29,6 +29,16 @@ targets:
       - data_width_p=4
       - num_channels_p=2
 
+  synth:
+    default_tool: yosys
+    filesets: [rtl]
+    tools:
+      yosys:
+        arch: ice40
+        output_format: json
+        yosys_synth_options: [-sv]
+    toplevel: bsg_nonsynth_ramulator_hbm
+
 parameters:
   channel_addr_width_p:
     datatype : int

@@ -22,6 +22,16 @@ targets:
         mode: lint-only
     toplevel: bsg_dramsim3_pkg
 
+  synth:
+    default_tool: yosys
+    filesets: [rtl]
+    tools:
+      yosys:
+        arch: ice40
+        output_format: json
+        yosys_synth_options: [-sv]
+    toplevel: bsg_dramsim3_pkg
+
 provider :
   name : github
   user : bespoke-silicon-group

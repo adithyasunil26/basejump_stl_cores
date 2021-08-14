@@ -26,6 +26,16 @@ targets:
       - reset_cycles_lo_p=1
       - reset_cycles_hi_p=5
 
+  synth:
+    default_tool: yosys
+    filesets: [rtl]
+    tools:
+      yosys:
+        arch: ice40
+        output_format: json
+        yosys_synth_options: [-sv]
+    toplevel: bsg_nonsynth_reset_gen
+
 parameters:
   num_clocks_p:
     datatype : int

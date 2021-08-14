@@ -23,6 +23,16 @@ targets:
         verilator_options: [-Wno-WIDTH]
     toplevel: bsg_nonsynth_random_gen
 
+  synth:
+    default_tool: yosys
+    filesets: [rtl]
+    tools:
+      yosys:
+        arch: ice40
+        output_format: json
+        yosys_synth_options: [-sv]
+    toplevel: bsg_nonsynth_random_gen
+
 parameters:
   width_p:
     datatype : int
