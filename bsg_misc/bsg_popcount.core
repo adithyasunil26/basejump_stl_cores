@@ -41,6 +41,16 @@ targets:
         verilator_options: [-Wno-lint]
     toplevel: test_bsg
 
+  synth:
+    default_tool: yosys
+    filesets: [rtl]
+    tools:
+      yosys:
+        arch: ice40
+        output_format: json
+        yosys_synth_options: [-sv]
+    toplevel: bsg_popcount
+
 parameters:
   width_p:
     datatype : int

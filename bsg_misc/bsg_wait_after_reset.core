@@ -41,6 +41,16 @@ targets:
         verilator_options: [-Wno-WIDTH -Wno-MULTIDRIVEN]
     toplevel: test_bsg
 
+  synth:
+    default_tool: yosys
+    filesets: [rtl]
+    tools:
+      yosys:
+        arch: ice40
+        output_format: json
+        yosys_synth_options: [-sv]
+    toplevel: bsg_wait_after_reset
+
 parameters:
   lg_wait_cycles_p:
     datatype : int
