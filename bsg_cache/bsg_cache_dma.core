@@ -7,6 +7,7 @@ filesets:
   rtl:
     files:
       - bsg_misc/bsg_defines.v: {is_include_file : true}
+      - bsg_cache/bsg_cache.vh: {is_include_file : true}
       - bsg_cache/bsg_cache_pkg.v
       - bsg_cache/bsg_cache_dma.v
     file_type: systemVerilogSource
