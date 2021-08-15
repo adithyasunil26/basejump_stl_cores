@@ -27,6 +27,16 @@ targets:
       - width_p=4
       - use_input_p=1
 
+  synth:
+    default_tool: yosys
+    filesets: [rtl]
+    tools:
+      yosys:
+        arch: ice40
+        output_format: json
+        yosys_synth_options: [-sv]
+    toplevel: bsg_nonsynth_dpi_gpio
+
 parameters:
   width_p:
     datatype : int

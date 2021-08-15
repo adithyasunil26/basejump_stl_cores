@@ -36,6 +36,16 @@ targets:
       - axi_data_width_p=2
       - axi_burst_len_p=2
 
+  synth:
+    default_tool: yosys
+    filesets: [rtl]
+    tools:
+      yosys:
+        arch: ice40
+        output_format: json
+        yosys_synth_options: [-sv]
+    toplevel: bsg_cache_to_axi_tx
+
 parameters:
   data_width_p:
     datatype : int

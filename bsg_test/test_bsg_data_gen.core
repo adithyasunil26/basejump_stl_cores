@@ -26,6 +26,16 @@ targets:
       - channel_width_p=4
       - num_channels_p=4
 
+  synth:
+    default_tool: yosys
+    filesets: [rtl]
+    tools:
+      yosys:
+        arch: ice40
+        output_format: json
+        yosys_synth_options: [-sv]
+    toplevel: test_bsg_data_gen
+
 parameters:
   channel_width_p:
     datatype : int

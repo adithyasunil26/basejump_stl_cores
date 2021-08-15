@@ -27,6 +27,16 @@ targets:
         mode: lint-only
     toplevel: bsg_wormhole_concentrator__abstract
 
+  synth:
+    default_tool: yosys
+    filesets: [rtl]
+    tools:
+      yosys:
+        arch: ice40
+        output_format: json
+        yosys_synth_options: [-sv]
+    toplevel: bsg_wormhole_concentrator
+
 parameters:
   num_in_p:
     datatype : int

@@ -36,6 +36,16 @@ targets:
         verilator_options: [-Wno-WIDTH -Wno-PINMISSING -Wno-MODDUP]
     toplevel: bsg_cache
 
+  synth:
+    default_tool: yosys
+    filesets: [rtl]
+    tools:
+      yosys:
+        arch: ice40
+        output_format: json
+        yosys_synth_options: [-sv]
+    toplevel: bsg_cache
+
 parameters:
   addr_width_p:
     datatype : int

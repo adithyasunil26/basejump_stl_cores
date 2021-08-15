@@ -31,6 +31,16 @@ targets:
       - data_width_p=2
       - ways_p=2
 
+  synth:
+    default_tool: yosys
+    filesets: [rtl]
+    tools:
+      yosys:
+        arch: ice40
+        output_format: json
+        yosys_synth_options: [-sv]
+    toplevel: bsg_cache_sbuf
+
 parameters:
   addr_width_p:
     datatype : int

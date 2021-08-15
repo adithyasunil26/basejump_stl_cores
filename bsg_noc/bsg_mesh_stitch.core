@@ -28,6 +28,16 @@ targets:
       - x_max_p=2
       - y_max_p=2
 
+  synth:
+    default_tool: yosys
+    filesets: [rtl]
+    tools:
+      yosys:
+        arch: ice40
+        output_format: json
+        yosys_synth_options: [-sv]
+    toplevel: bsg_mesh_stitch
+
 parameters:
   width_p:
     datatype : int

@@ -33,6 +33,16 @@ targets:
       - block_size_in_words_p=2
       - dram_ctrl_burst_len_p=2
 
+  synth:
+    default_tool: yosys
+    filesets: [rtl]
+    tools:
+      yosys:
+        arch: ice40
+        output_format: json
+        yosys_synth_options: [-sv]
+    toplevel: bsg_cache_to_dram_ctrl_rx
+
 parameters:
   num_cache_p:
     datatype : int

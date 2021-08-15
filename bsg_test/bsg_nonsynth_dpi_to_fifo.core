@@ -26,6 +26,16 @@ targets:
     parameters:
       - width_p=8
 
+  synth:
+    default_tool: yosys
+    filesets: [rtl]
+    tools:
+      yosys:
+        arch: ice40
+        output_format: json
+        yosys_synth_options: [-sv]
+    toplevel: bsg_nonsynth_dpi_to_fifo
+
 parameters:
   width_p:
     datatype : int

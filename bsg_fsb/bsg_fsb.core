@@ -30,6 +30,16 @@ targets:
       - width_p=4
       - nodes_p=4
 
+  synth:
+    default_tool: yosys
+    filesets: [rtl]
+    tools:
+      yosys:
+        arch: ice40
+        output_format: json
+        yosys_synth_options: [-sv]
+    toplevel: bsg_fsb
+
 parameters:
   width_p:
     datatype : int

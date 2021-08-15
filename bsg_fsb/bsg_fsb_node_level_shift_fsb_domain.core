@@ -27,6 +27,16 @@ targets:
     parameters:
       - ring_width_p=2
 
+  synth:
+    default_tool: yosys
+    filesets: [rtl]
+    tools:
+      yosys:
+        arch: ice40
+        output_format: json
+        yosys_synth_options: [-sv]
+    toplevel: bsg_fsb_node_level_shift_fsb_domain
+
 parameters:
   ring_width_p:
     datatype : int

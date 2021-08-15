@@ -24,6 +24,16 @@ targets:
         verilator_options: [-Wno-UNOPT]
     toplevel: bsg_cache_non_blocking_decode
 
+  synth:
+    default_tool: yosys
+    filesets: [rtl]
+    tools:
+      yosys:
+        arch: ice40
+        output_format: json
+        yosys_synth_options: [-sv]
+    toplevel: bsg_cache_non_blocking_decode
+
 provider :
   name : github
   user : bespoke-silicon-group

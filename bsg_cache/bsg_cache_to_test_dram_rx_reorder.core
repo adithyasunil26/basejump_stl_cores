@@ -32,6 +32,16 @@ targets:
       - dram_data_width_p=2
       - dram_channel_addr_width_p=2
 
+  synth:
+    default_tool: yosys
+    filesets: [rtl]
+    tools:
+      yosys:
+        arch: ice40
+        output_format: json
+        yosys_synth_options: [-sv]
+    toplevel: bsg_cache_to_test_dram_rx_reorder
+
 parameters:
   data_width_p:
     datatype : int
