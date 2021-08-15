@@ -37,7 +37,7 @@ targets:
     parameters: 
       - width_p=2
     
-    verilator_tb:
+  verilator_tb:
     default_tool: verilator
     filesets: [rtl, tb]
     tools:
