@@ -40,7 +40,7 @@ targets:
     filesets: [rtl, tb]
     tools:
       verilator:
-        verilator_options: [-Wno-WIDTH -Wno-MULTIDRIVEN]
+        verilator_options: [-Wno-WIDTH -Wno-MULTIDRIVEN --assert]
     toplevel: test_bsg
 
 parameters:

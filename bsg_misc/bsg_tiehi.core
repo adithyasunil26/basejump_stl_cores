@@ -38,7 +38,7 @@ targets:
     filesets: [rtl, tb]
     tools:
       verilator:
-        verilator_options: [-Wno-lint]
+        verilator_options: [-Wno-lint --assert]
     toplevel: test_bsg
 
 parameters:

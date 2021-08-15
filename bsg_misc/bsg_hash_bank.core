@@ -42,7 +42,7 @@ targets:
     filesets: [rtl, tb]
     tools:
       verilator:
-        verilator_options: [-Wno-WIDTH -Wno-UNOPTFLAT -Wno-MODDUP]
+        verilator_options: [-Wno-WIDTH -Wno-UNOPTFLAT -Wno-MODDUP --assert]
     toplevel: tb
 
 parameters:
