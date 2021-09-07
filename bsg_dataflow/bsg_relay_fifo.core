@@ -31,6 +31,7 @@ targets:
     tools:
       verilator: 
         mode: lint-only
+        verilator_options: [-Wwarn-lint -Wwarn-style]
         verilator_options: [-Wno-WIDTH]
     toplevel: bsg_relay_fifo
     parameters: 

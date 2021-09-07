@@ -31,6 +31,7 @@ targets:
     tools:
       verilator: 
         mode: lint-only
+        verilator_options: [-Wwarn-lint -Wwarn-style]
     toplevel: bsg_edge_detect
     parameters: 
       - falling_not_rising_p=0

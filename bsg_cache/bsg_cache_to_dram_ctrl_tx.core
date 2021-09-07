@@ -24,6 +24,7 @@ targets:
     tools:
       verilator: 
         mode: lint-only
+        verilator_options: [-Wwarn-lint -Wwarn-style]
         verilator_options: [-Wno-WIDTH -Wno-LITENDIAN]
     toplevel: bsg_cache_to_dram_ctrl_tx
     parameters: 

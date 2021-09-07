@@ -35,6 +35,7 @@ targets:
     tools:
       verilator: 
         mode: lint-only
+        verilator_options: [-Wwarn-lint -Wwarn-style]
     toplevel: bsg_round_robin_fifo_to_fifo
     parameters: 
       - width_p=2
