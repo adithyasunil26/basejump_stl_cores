@@ -32,6 +32,7 @@ targets:
     tools:
       verilator: 
         mode: lint-only
+        verilator_options: [-Wwarn-lint -Wwarn-style]
     toplevel: bsg_sbox
     parameters: 
       - num_channels_p=2

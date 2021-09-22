@@ -29,6 +29,7 @@ targets:
     tools:
       verilator: 
         mode: lint-only
+        verilator_options: [-Wwarn-lint -Wwarn-style]
         verilator_options: [-Wno-WIDTH]
     toplevel: bsg_counter_up_down_variable
     parameters:

@@ -31,6 +31,7 @@ targets:
     tools:
       verilator: 
         mode: lint-only
+        verilator_options: [-Wwarn-lint -Wwarn-style]
         verilator_options: [-Wno-UNOPTFLAT]
     toplevel: bsg_gray_to_binary
     parameters: 

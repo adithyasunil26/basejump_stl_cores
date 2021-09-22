@@ -25,6 +25,7 @@ targets:
     tools:
       verilator: 
         mode: lint-only
+        verilator_options: [-Wwarn-lint -Wwarn-style]
         verilator_options: [-Wno-MODDUP]
     toplevel: bsg_cache_non_blocking_tl_stage
     parameters:

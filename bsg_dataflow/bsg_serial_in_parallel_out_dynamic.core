@@ -35,6 +35,7 @@ targets:
     tools:
       verilator: 
         mode: lint-only
+        verilator_options: [-Wwarn-lint -Wwarn-style]
         verilator_options: [-Wno-WIDTH]
     toplevel: bsg_serial_in_parallel_out_dynamic
     parameters: 

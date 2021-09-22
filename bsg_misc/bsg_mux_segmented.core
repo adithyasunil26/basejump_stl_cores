@@ -29,6 +29,7 @@ targets:
     tools:
       verilator: 
         mode: lint-only
+        verilator_options: [-Wwarn-lint -Wwarn-style]
     toplevel: bsg_mux_segmented
     parameters: 
       - segments_p=2

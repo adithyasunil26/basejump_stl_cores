@@ -23,6 +23,7 @@ targets:
     tools:
       verilator: 
         mode: lint-only
+        verilator_options: [-Wwarn-lint -Wwarn-style]
     toplevel: bsg_mesh_router_decoder_dor
     parameters:
       - x_cord_width_p=2

@@ -24,6 +24,7 @@ targets:
     tools:
       verilator: 
         mode: lint-only
+        verilator_options: [-Wwarn-lint -Wwarn-style]
         verilator_options: [-Wno-MODDUP --debug]
     toplevel: bsg_cache_sbuf
     parameters:

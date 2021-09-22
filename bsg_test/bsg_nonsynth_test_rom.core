@@ -20,6 +20,7 @@ targets:
     tools:
       verilator: 
         mode: lint-only
+        verilator_options: [-Wwarn-lint -Wwarn-style]
     toplevel: bsg_nonsynth_test_rom
     parameters:
       - data_width_p=4

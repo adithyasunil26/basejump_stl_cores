@@ -21,6 +21,7 @@ targets:
     tools:
       verilator: 
         mode: lint-only
+        verilator_options: [-Wwarn-lint -Wwarn-style]
     toplevel: bsg_cache_sbuf_queue
     parameters:
       - width_p= 2

@@ -20,6 +20,7 @@ targets:
     tools:
       verilator: 
         mode: lint-only
+        verilator_options: [-Wwarn-lint -Wwarn-style]
     toplevel: bsg_nonsynth_fsb_node_trace_replay
     parameters:
       - master_id_p=2

@@ -31,6 +31,7 @@ targets:
     tools:
       verilator: 
         mode: lint-only
+        verilator_options: [-Wwarn-lint -Wwarn-style]
         verilator_options: [-Wno-UNOPTFLAT -Wno-WIDTH]
     toplevel: bsg_priority_encode_one_hot_out
     parameters: 

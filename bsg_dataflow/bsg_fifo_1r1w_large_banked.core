@@ -33,6 +33,7 @@ targets:
     tools:
       verilator: 
         mode: lint-only
+        verilator_options: [-Wwarn-lint -Wwarn-style]
         # verilator_options: [-Wno-WIDTH -Wno-UNOPTFLAT]
     toplevel: bsg_fifo_1r1w_large_banked
     parameters: 

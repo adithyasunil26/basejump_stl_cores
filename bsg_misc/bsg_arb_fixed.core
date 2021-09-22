@@ -32,6 +32,7 @@ targets:
     tools:
       verilator: 
         mode: lint-only
+        verilator_options: [-Wwarn-lint -Wwarn-style]
         verilator_options: [-Wno-WIDTH -Wno-UNOPTFLAT]
     toplevel: bsg_arb_fixed
     parameters: 
