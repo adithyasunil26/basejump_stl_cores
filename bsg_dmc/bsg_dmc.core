@@ -1,0 +1,120 @@
+CAPI=2:
+
+name: ::bsg_dmc:0-r1
+description: LPDDR.
+
+filesets:
+  rtl:
+    files:
+      - bsg_dmc/bsg_dmc.vh: {is_include_file : true}
+      - bsg_dmc/bsg_dmc_pkg.v
+      - bsg_dmc/bsg_dmc_clk_rst_gen.v
+      - bsg_dmc/bsg_dmc_controller.v
+      - bsg_dmc/bsg_dmc_phy.v
+      - bsg_dmc/bsg_dmc.v
+    file_type: systemVerilogSource
+    depend:
+      - bsg_clk_gen
+      - bsg_sync_sync
+      - bsg_tag_client_unsync
+      - bsg_tag_client
+      - bsg_counter_clock_downsample
+
+  tb:
+    files:
+      - testing/bsg_dmc/tasks.v: {is_include_file : true}
+      - testing/bsg_dmc/testbench.v
+      - testing/bsg_dmc/lpddr_verilog_model/1024Mb_mobile_ddr_parameters.vh: {is_include_file : true}
+      - testing/bsg_dmc/lpddr_verilog_model/128Mb_mobile_ddr_parameters.vh: {is_include_file : true}
+      - testing/bsg_dmc/lpddr_verilog_model/2048Mb_mobile_ddr_parameters.vh: {is_include_file : true}
+      - testing/bsg_dmc/lpddr_verilog_model/256Mb_mobile_ddr_parameters.vh: {is_include_file : true}
+      - testing/bsg_dmc/lpddr_verilog_model/512Mb_mobile_ddr_parameters.vh: {is_include_file : true}
+      - testing/bsg_dmc/lpddr_verilog_model/mobile_ddr_mcp.v
+      - testing/bsg_dmc/lpddr_verilog_model/mobile_ddr.v
+      - testing/bsg_dmc/lpddr_verilog_model/subtest.vh: {is_include_file : true}
+      - testing/bsg_dmc/lpddr_verilog_model/tb.v
+    file_type: systemVerilogSource
+    depend:
+      - bsg_serial_in_parallel_out
+
+targets:
+  default:
+    filesets: [rtl]
+
+  lint:
+    default_tool: verilator
+    filesets: [rtl]
+    tools:
+      verilator:
+        mode: lint-only
+        verilator_options: [-Wwarn-lint -Wwarn-style]
+    toplevel: bsg_dmc
+    parameters:
+      - ui_addr_width_p=64
+      - ui_data_width_p=64
+      - burst_data_width_p=64
+      - dq_data_width_p=64
+      - cmd_afifo_depth_p=64
+      - cmd_sfifo_depth_p=64
+
+  tb:
+    default_tool: modelsim
+    filesets: [rtl, tb]
+    tools:
+      icarus:
+        iverilog_options:
+          - -g2012 # Use SystemVerilog-2012
+      modelsim:
+        vlog_options:
+          - +define+den512Mb
+          - +define+sg75
+          - +define+x16
+          - +define+FULL_MEM
+          - +define+RP
+          - -timescale=1ns/1ns
+          - -suppress vlog-13169 # Packed arrays without an explicit range
+          - -suppress vlog-8386  # Enum assigned a constand non-enum type
+          - -suppress vlog-2902  # ifdef and define on the same line
+          - '-64'
+        vsim_options:
+          - -Gpart_mem_bits=8 mobile_ddr
+          - -suppress vsim-8630  # Remove the division by zero error in the testbench
+    toplevel: tb
+    parameters:
+      - ui_addr_width_p=64
+      - ui_data_width_p=64
+      - burst_data_width_p=64
+      - dq_data_width_p=64
+      - cmd_afifo_depth_p=64
+      - cmd_sfifo_depth_p=64
+
+parameters:
+  ui_addr_width_p:
+    datatype: int
+    default: -1
+    paramtype: vlogparam
+  ui_data_width_p:
+    datatype: int
+    default: -1
+    paramtype: vlogparam
+  burst_data_width_p:
+    datatype: int
+    default: -1
+    paramtype: vlogparam
+  dq_data_width_p:
+    datatype: int
+    default: -1
+    paramtype: vlogparam
+  cmd_afifo_depth_p:
+    datatype: int
+    default: -1
+    paramtype: vlogparam
+  cmd_sfifo_depth_p:
+    datatype: int
+    default: -1
+    paramtype: vlogparam
+
+provider :
+  name : github
+  user : bespoke-silicon-group
+  repo : basejump_stl
