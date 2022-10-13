@@ -1,0 +1,74 @@
+CAPI=2:
+
+name: ::bsg_clk_gen:0-r1
+description: Clock generator.
+
+filesets:
+  rtl:
+    files:
+      - bsg_clk_gen/bsg_clk_gen.vh: {is_include_file : true}
+      - bsg_clk_gen/bsg_clk_gen_osc.v
+      - bsg_clk_gen/bsg_dly_line.v
+      - bsg_clk_gen/bsg_clk_gen.v
+    file_type: systemVerilogSource
+    depend:
+      - bsg_tag_client
+      - bsg_tag_client_unsync
+      - bsg_counter_clock_downsample
+
+  tb:
+    files:
+      - testing/bsg_clk_gen/bsg_nonsynth_clk_gen_tester.v
+      - testing/bsg_clk_gen/test_bsg.v
+    file_type: systemVerilogSource
+    depend:
+      - bsg_nonsynth_clock_gen
+      - bsg_tag_master
+
+targets:
+  default:
+    filesets: [rtl]
+
+  lint:
+    default_tool: verilator
+    filesets: [rtl]
+    tools:
+      verilator:
+        mode: lint-only
+        verilator_options: [-Wwarn-lint -Wwarn-style]
+    toplevel: bsg_clk_gen
+    parameters:
+      - num_adgs_p=2
+      - downsample_width_p=8
+      - version_p=1
+
+  tb:
+    default_tool: modelsim
+    filesets: [rtl, tb]
+    tools:
+      icarus:
+        iverilog_options:
+          - -g2012 # Use SystemVerilog-2012
+      modelsim:
+        vlog_options:
+          - -timescale=1ns/1ns
+    toplevel: test_bsg
+
+parameters:
+  num_adgs_p:
+    datatype: int
+    default: 2
+    paramtype: vlogparam
+  downsample_width_p:
+    datatype: int
+    default: -1
+    paramtype: vlogparam
+  version_p:
+    datatype: int
+    default: -1
+    paramtype: vlogparam
+
+provider :
+  name : github
+  user : bespoke-silicon-group
+  repo : basejump_stl
