@@ -1,6 +1,6 @@
 CAPI=2:
 
-name: ::bsg_8b10b_encode_comb:0-r1
+name: bespoke-silicon-group:basejump_stl/bsg_dataflow:bsg_8b10b_encode_comb:0-r1
 description: Byte Oriented DC Balanced 8B/10B Partitioned Block Transmission Code
 
 filesets:

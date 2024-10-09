@@ -1,6 +1,6 @@
 CAPI=2:
 
-name: ::bsg_mem_banked_crossbar_control_o_by_i:0-r1
+name: bespoke-silicon-group:basejump_stl/bsg_mem:bsg_mem_banked_crossbar_control_o_by_i:0-r1
 description: bank mem banked crossbar
 
 filesets:

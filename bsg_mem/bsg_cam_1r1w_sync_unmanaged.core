@@ -1,6 +1,6 @@
 CAPI=2:
 
-name: ::bsg_cam_1r1w_sync_unmanaged:0-r1
+name: bespoke-silicon-group:basejump_stl/bsg_mem:bsg_cam_1r1w_sync_unmanaged:0-r1
 description: Synchnronous read 1r1w content addressable memory module.
 
 filesets:

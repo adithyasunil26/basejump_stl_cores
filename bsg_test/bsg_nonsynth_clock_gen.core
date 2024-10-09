@@ -1,6 +1,6 @@
 CAPI=2:
 
-name: ::bsg_nonsynth_clock_gen:0-r1
+name: bespoke-silicon-group:basejump_stl/bsg_test:bsg_nonsynth_clock_gen:0-r1
 description: we use bit for the output so that it starts at 0 this helps with x prop mode in VCS
 
 filesets:

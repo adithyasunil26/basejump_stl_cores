@@ -1,6 +1,6 @@
 CAPI=2:
 
-name: ::bsg_channel_tunnel:0-r1
+name: bespoke-silicon-group:basejump_stl/bsg_dataflow:bsg_channel_tunnel:0-r1
 description: This module allows you to multiplex multiple streams over a shared interconnect without having deadlock occur because of stream interleaving.
 
 filesets:

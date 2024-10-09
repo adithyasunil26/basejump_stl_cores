@@ -1,6 +1,6 @@
 CAPI=2:
 
-name: ::bsg_nonsynth_mem_1rw_sync_assoc:0-r1
+name: bespoke-silicon-group:basejump_stl/bsg_mem:bsg_nonsynth_mem_1rw_sync_assoc:0-r1
 description: This is for simulating arbitrarily large memories.
 
 filesets:

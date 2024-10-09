@@ -1,6 +1,6 @@
 CAPI=2:
 
-name: ::bsg_mesh_router_decoder_dor:0-r1
+name: bespoke-silicon-group:basejump_stl/bsg_noc:bsg_mesh_router_decoder_dor:0-r1
 description: Dimension ordered routing decoder
 
 filesets:

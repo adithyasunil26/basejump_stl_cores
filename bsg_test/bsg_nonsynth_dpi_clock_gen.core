@@ -1,6 +1,6 @@
 CAPI=2:
 
-name: ::bsg_nonsynth_dpi_clock_gen:0-r1
+name: bespoke-silicon-group:basejump_stl/bsg_test:bsg_nonsynth_dpi_clock_gen:0-r1
 description: drop-in replacement for bsg_nonsynth_clock_gen when using verilator
 
 filesets:

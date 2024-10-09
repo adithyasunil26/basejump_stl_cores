@@ -1,6 +1,6 @@
 CAPI=2:
 
-name: ::bsg_sort_stable:0-r1
+name: bespoke-silicon-group:basejump_stl/bsg_dataflow:bsg_sort_stable:0-r1
 description: This is a sorting network implementation. Currently, it implements a stable 4-item sort -- very efficiently.
 
 filesets:

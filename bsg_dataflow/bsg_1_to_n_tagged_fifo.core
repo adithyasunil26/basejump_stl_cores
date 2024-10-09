@@ -1,6 +1,6 @@
 CAPI=2:
 
-name: ::bsg_1_to_n_tagged_fifo:0-r1
+name: bespoke-silicon-group:basejump_stl/bsg_dataflow:bsg_1_to_n_tagged_fifo:0-r1
 description: This module implements a FIFO that takes in a multiplexed stream on one end, and provides demultiplexed access on the other.
 
 filesets:

@@ -1,6 +1,6 @@
 CAPI=2:
 
-name: ::test_bsg_data_gen:0-r1
+name: bespoke-silicon-group:basejump_stl/bsg_test:test_bsg_data_gen:0-r1
 description: test_bsg_data_gen
 
 filesets:

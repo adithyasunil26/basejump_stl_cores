@@ -1,6 +1,6 @@
 CAPI=2:
 
-name: ::bsg_fifo_1r1w_pseudo_large:0-r1
+name: bespoke-silicon-group:basejump_stl/bsg_dataflow:bsg_fifo_1r1w_pseudo_large:0-r1
 description: This fifo looks like a 1R1W fifo but actually is implemented with a 1RW FIFO for the bulk of its storage, and has a small 1R1W FIFO to help decouple reads and writes that may conflict. This FIFO is useful for cases where reads and writes each individually have a duty cycle of 50% or less.
 
 filesets:

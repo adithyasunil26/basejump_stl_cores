@@ -1,6 +1,6 @@
 CAPI=2:
 
-name: ::bsg_credit_to_token:0-r1
+name: bespoke-silicon-group:basejump_stl/bsg_dataflow:bsg_credit_to_token:0-r1
 description: This module is a counter for credits, that every decimation_p credits it would assert token_o signal once. 
 
 filesets:

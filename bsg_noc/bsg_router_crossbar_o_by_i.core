@@ -1,6 +1,6 @@
 CAPI=2:
 
-name: ::bsg_router_crossbar_o_by_i:0-r1
+name: bespoke-silicon-group:basejump_stl/bsg_noc:bsg_router_crossbar_o_by_i:0-r1
 description: This module connects N inputs to M outputs with a crossbar network.
 
 filesets:

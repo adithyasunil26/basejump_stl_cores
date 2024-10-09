@@ -1,6 +1,6 @@
 CAPI=2:
 
-name: ::bsg_nonsynth_random_gen:0-r1
+name: bespoke-silicon-group:basejump_stl/bsg_test:bsg_nonsynth_random_gen:0-r1
 description: This module generates a stream of random numbers with seed specified  as a parameter.
 
 filesets:

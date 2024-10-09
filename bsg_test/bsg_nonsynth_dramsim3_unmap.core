@@ -1,6 +1,6 @@
 CAPI=2:
 
-name: ::bsg_nonsynth_dramsim3_unmap:0-r1
+name: bespoke-silicon-group:basejump_stl/bsg_test:bsg_nonsynth_dramsim3_unmap:0-r1
 description: bsg_nonsynth_dramsim3_unmap
 
 filesets:

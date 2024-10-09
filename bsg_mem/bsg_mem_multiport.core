@@ -1,6 +1,6 @@
 CAPI=2:
 
-name: ::bsg_mem_multiport:0-r1
+name: bespoke-silicon-group:basejump_stl/bsg_mem:bsg_mem_multiport:0-r1
 description: N read-port, M write-port ram; reads are asynchronous
 
 filesets:

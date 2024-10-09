@@ -1,6 +1,6 @@
 CAPI=2:
 
-name: ::bsg_ready_and_link_async_to_wormhole:0-r1
+name: bespoke-silicon-group:basejump_stl/bsg_noc:bsg_ready_and_link_async_to_wormhole:0-r1
 description: This is an adapter from bsg_noc_ready_and_link to bsg_wormhole_link
 
 filesets:

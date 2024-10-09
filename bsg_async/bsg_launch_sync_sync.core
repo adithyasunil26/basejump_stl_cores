@@ -1,6 +1,6 @@
 CAPI=2:
 
-name: ::bsg_launch_sync_sync:0-r1
+name: bespoke-silicon-group:basejump_stl/bsg_misc:bsg_launch_sync_sync:0-r1
 description: This is a launch/synchronization complex.
 
 filesets:

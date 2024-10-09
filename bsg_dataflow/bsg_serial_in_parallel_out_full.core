@@ -1,6 +1,6 @@
 CAPI=2:
 
-name: ::bsg_serial_in_parallel_out_full:0-r1
+name: bespoke-silicon-group:basejump_stl/bsg_dataflow:bsg_serial_in_parallel_out_full:0-r1
 description: This is a simpler version of bsg_serial_in_parallel_out. Output is only valid, when the output array is fully assembled.
 
 filesets:

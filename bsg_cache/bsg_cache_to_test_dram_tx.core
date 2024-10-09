@@ -1,6 +1,6 @@
 CAPI=2:
 
-name: ::bsg_cache_to_test_dram_tx:0-r1
+name: bespoke-silicon-group:basejump_stl/bsg_cache:bsg_cache_to_test_dram_tx:0-r1
 description: bsg_cache_to_test_dram_tx
 
 filesets:

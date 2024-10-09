@@ -1,6 +1,6 @@
 CAPI=2:
 
-name: ::bsg_serial_in_parallel_out:0-r1
+name: bespoke-silicon-group:basejump_stl/bsg_dataflow:bsg_serial_in_parallel_out:0-r1
 description: a data structure that takes one word per cycle and allows more than one word per cycle to exit. the number of words extracted can vary dynamically.
 
 filesets:

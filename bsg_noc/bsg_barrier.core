@@ -1,6 +1,6 @@
 CAPI=2:
 
-name: ::bsg_barrier:0-r1
+name: bespoke-silicon-group:basejump_stl/bsg_noc:bsg_barrier:0-r1
 description: Light-weight configurable wire/logic efficient barrier.
 
 filesets:

@@ -1,6 +1,6 @@
 CAPI=2:
 
-name: ::bsg_wormhole_concentrator_out:0-r1
+name: bespoke-silicon-group:basejump_stl/bsg_noc:bsg_wormhole_concentrator_out:0-r1
 description: This is an adapter between 1 concentrated wormhole link and N unconcentrated wormhole links.
 
 filesets:

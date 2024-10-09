@@ -1,6 +1,6 @@
 CAPI=2:
 
-name: ::bsg_mem_2r1w_sync:0-r1
+name: bespoke-silicon-group:basejump_stl/bsg_mem:bsg_mem_2r1w_sync:0-r1
 description: 2 read-port, 1 write-port ram;reads are synchronous
 
 filesets:

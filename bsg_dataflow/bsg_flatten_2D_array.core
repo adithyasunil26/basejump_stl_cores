@@ -1,6 +1,6 @@
 CAPI=2:
 
-name: ::bsg_flatten_2D_array:0-r1
+name: bespoke-silicon-group:basejump_stl/bsg_dataflow:bsg_flatten_2D_array:0-r1
 description: flatten 2D array
 
 filesets:

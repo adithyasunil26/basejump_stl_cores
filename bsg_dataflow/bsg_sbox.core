@@ -1,6 +1,6 @@
 CAPI=2:
 
-name: ::bsg_sbox:0-r1
+name: bespoke-silicon-group:basejump_stl/bsg_dataflow:bsg_sbox:0-r1
 description: The switchbox concentrates working channel signals to reduce the complexity of downstream logic.
 
 filesets:

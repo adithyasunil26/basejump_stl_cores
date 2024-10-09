@@ -1,6 +1,6 @@
 CAPI=2:
 
-name: ::bsg_mesh_router_buffered:0-r1
+name: bespoke-silicon-group:basejump_stl/bsg_noc:bsg_mesh_router_buffered:0-r1
 description: mesh router buffered
 
 filesets:

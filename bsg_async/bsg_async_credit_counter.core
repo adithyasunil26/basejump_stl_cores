@@ -1,6 +1,6 @@
 CAPI=2:
 
-name: ::bsg_async_credit_counter:0-r1
+name: bespoke-silicon-group:basejump_stl/bsg_misc:bsg_async_credit_counter:0-r1
 description: async credit counter
 
 filesets:

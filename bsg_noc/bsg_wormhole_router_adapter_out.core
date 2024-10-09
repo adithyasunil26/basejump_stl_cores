@@ -1,6 +1,6 @@
 CAPI=2:
 
-name: ::bsg_wormhole_router_adapter_out:0-r1
+name: bespoke-silicon-group:basejump_stl/bsg_noc:bsg_wormhole_router_adapter_out:0-r1
 description: wormhole router adapter out; packet = {payload, length, cord}
 
 filesets:

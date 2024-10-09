@@ -1,6 +1,6 @@
 CAPI=2:
 
-name: ::bsg_channel_tunnel_wormhole:0-r1
+name: bespoke-silicon-group:basejump_stl/bsg_dataflow:bsg_channel_tunnel_wormhole:0-r1
 description: This module is a special version bsg_channel_tunnel that accepts wormhole packet
 
 filesets:

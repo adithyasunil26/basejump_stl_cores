@@ -1,6 +1,6 @@
 CAPI=2:
 
-name: ::bsg_async_fifo:0-r1
+name: bespoke-silicon-group:basejump_stl/bsg_misc:bsg_async_fifo:0-r1
 description: uses synchronous reset for both sides
 
 filesets:

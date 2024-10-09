@@ -1,6 +1,6 @@
 CAPI=2:
 
-name: ::bsg_round_robin_fifo_to_fifo:0-r1
+name: bespoke-silicon-group:basejump_stl/bsg_dataflow:bsg_round_robin_fifo_to_fifo:0-r1
 description: this module instantiates the appropriate input, intermediate and output modules to create a complete round-robin fifo-to-fifo transfer engine.
 
 filesets:

@@ -1,6 +1,6 @@
 CAPI=2:
 
-name: ::bsg_round_robin_n_to_1:0-r1
+name: bespoke-silicon-group:basejump_stl/bsg_dataflow:bsg_round_robin_n_to_1:0-r1
 description: this is intended to merge the outputs of several fifos together to act as one.
 
 filesets:

@@ -1,6 +1,6 @@
 CAPI=2:
 
-name: ::bsg_serial_in_parallel_out_dynamic:0-r1
+name: bespoke-silicon-group:basejump_stl/bsg_dataflow:bsg_serial_in_parallel_out_dynamic:0-r1
 description: bsg_serial_in_parallel_out_dynamic
 
 filesets:

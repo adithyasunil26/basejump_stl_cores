@@ -1,6 +1,6 @@
 CAPI=2:
 
-name: ::bsg_scatter_gather:0-r1
+name: bespoke-silicon-group:basejump_stl/bsg_dataflow:bsg_scatter_gather:0-r1
 description: Given a bit vector, generate permutation vectors that perform concentration (fwd) and deconcentration (bkwd).
 
 filesets:
